@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Bitum';
+  src: url('@assets/fonts/Bitum.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BitumLight';
+  src: url('@assets/fonts/Bitum-Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  font-family: Bitum, serif;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: theme('colors.black');
+  background-color: theme('colors.white');
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 400;
+  font-size: theme('fontSize.xs');
+  line-height: theme('fontSize.xs');
+  color: theme('colors.black');
+}
+
+a:hover {
+  color: theme('colors.gray.dark');
+}
+
+p {
+  font-size: theme('fontSize.sm');
+}
+
+body {
+  input {
+    font: theme('fontSize.base') 'BitumLight', sans-serif;
+    color: theme('colors.black');
+    border-radius: theme('borderRadius.DEFAULT');
+
+    &[type='email']{
+      border-radius: theme('borderRadius.DEFAULT');
+      &:focus {
+        --tw-ring-color: theme('colors.ring');
+        border-color: theme('colors.gray.light');
+        font-size: theme('fontSize.base');
+      }
+    }
+  }
+}
+
+::placeholder {
+  color: theme('colors.gray.DEFAULT');
+  font-size: theme('fontSize.base');
+  padding: 0;
+}
+
+h1 {
+  font-size: theme('fontSize.lg');
+  line-height: 1.1;
+}
+
+button {
+  border-radius: theme('borderRadius.DEFAULT');
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  background-color: theme('colors.button.DEFAULT');
+}
+
+button:hover {
+  border-color: theme('colors.button.hover');
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: theme('colors.blue.DEFAULT');
+    background-color: theme('colors.white');
+  }
+  a:hover {
+    color: theme('colors.blue.hover');
+  }
+  button {
+    background-color: theme('colors.button.DEFAULT');
+  }
+}
