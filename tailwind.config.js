@@ -3,6 +3,7 @@ export default {
   content: [
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}', // Adjust the path according to your project structure
+    './node_modules/flowbite/**/*.js',
   ],
   theme: {
     screens: {
@@ -37,7 +38,7 @@ export default {
       xs: '11px',
       sm: '12px',
       base: '13px',
-      lg: '3.2em',
+      lg: '18px',
     },
     borderRadius: {
       none: '0',
@@ -47,5 +48,5 @@ export default {
       DEFAULT: '#E3E2E1',
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require('@tailwindcss/forms'), require('flowbite/plugin')],
 };

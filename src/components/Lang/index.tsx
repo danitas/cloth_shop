@@ -10,7 +10,7 @@ const Lang = () => {
 
   return (
     <>
-      <p className="uppercase">{i18n.language}</p>
+      <p className="text-base uppercase">{i18n.language}</p>
     </>
   );
 };

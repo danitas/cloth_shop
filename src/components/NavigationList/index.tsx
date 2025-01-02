@@ -1,13 +1,11 @@
-import { navigationItems } from '../../data/navigatin.ts';
+import MobileNavigation from '@components/Header/MobileNavigation';
+import DesktopNavigation from '@components/Header/DesktopNavigation';
 
 const NavigationList = () => {
   return (
     <>
-      {navigationItems.map((item) => (
-        <a href={item.url} key={item.id} className={`text-gray-800`}>
-          {item.name}
-        </a>
-      ))}
+      <MobileNavigation />
+      <DesktopNavigation />
     </>
   );
 };

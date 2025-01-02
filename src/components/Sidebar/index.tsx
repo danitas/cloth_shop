@@ -1,14 +1,11 @@
 import { useSidebarContext } from '../../context/SidebarContext.tsx';
-import NavigationList from '@components/NavigationList';
+import NavigationList from '../NavigationList';
 import MobileHeader from '@components/MobileHeader';
-import Locale from '@components/Locale';
-import Lang from '@components/Lang';
-import { UserRound, UserRoundCheck } from 'lucide-react';
-import { useState } from 'react';
+import LangLocaleAuth from '@components/LangLocaleAuth';
 
 const Sidebar = () => {
   const { isSmallOpen } = useSidebarContext();
-  const { isLoggedIn, setIsLoggedIn } = useState();
+
   return (
     <>
       <aside
@@ -20,15 +17,9 @@ const Sidebar = () => {
           </div>
           <NavigationList />
         </div>
-        <div className="sticky left-0 top-full bg-gray-950 p-4 text-white">
+        <div className="sticky left-0 top-full bg-black p-4 text-white">
           <div className="flex justify-between">
-            <Lang />
-            <Locale />
-            {isLoggedIn ? (
-              <UserRoundCheck width="17" height="17" />
-            ) : (
-              <UserRound width="17" height="17" />
-            )}
+            <LangLocaleAuth />
           </div>
         </div>
       </aside>

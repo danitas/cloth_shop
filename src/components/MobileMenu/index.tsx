@@ -3,7 +3,7 @@ import MobileHeader from '@components/MobileHeader';
 
 const MobileMenu = () => {
   return (
-    <div className={`flex items-center justify-between lg:hidden`}>
+    <div className="flex lg:hidden">
       <MobileHeader />
 
       <Sidebar />

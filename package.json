@@ -15,6 +15,7 @@
     "@hookform/resolvers": "^3.9.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "flowbite": "^2.5.2",
     "i18next": "^24.2.0",
     "i18next-browser-languagedetector": "^8.0.2",
     "i18next-http-backend": "^3.0.1",
