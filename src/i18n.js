@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import FooterFollowsDE from '@components/FooterFollows/index.de.json';
-import FooterFollowsEN from '@components/FooterFollows/index.en.json';
+import FooterFollowsDE from '@components/Footer/FooterFollows/index.de.json';
+import FooterFollowsEN from '@components/Footer/FooterFollows/index.en.json';
 import SubscribeEN from '@components/Subscribe/index.en.json';
 import SubscribeDE from '@components/Subscribe/index.de.json';
 

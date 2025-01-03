@@ -23,7 +23,7 @@ const DesktopMenu = () => {
       </a>
 
       <div className={`flex gap-6`}>
-        <div className="flex justify-center gap-10 px-40 align-middle">
+        <div className="flex justify-center align-middle">
           <div className="text-gray-800 mx-5 flex px-9 text-base font-bold uppercase">
             Customer Care
           </div>

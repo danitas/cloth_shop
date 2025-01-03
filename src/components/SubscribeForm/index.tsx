@@ -1,10 +1,10 @@
 const SubscribeForm = () => {
   return (
-    <form className="relative">
+    <form className="relative lg:w-full">
       <div className="relative mb-6">
         <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
           <svg
-            className="h-4 w-4 text-gray-500"
+            className="text-gray-500 h-4 w-4"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -23,7 +23,7 @@ const SubscribeForm = () => {
         <input
           type="email"
           id="email"
-          className="w-full border p-4 ps-10 text-sm"
+          className="w-full border p-4 ps-10 text-sm lg:h-12"
           placeholder="Enter your email"
           required
         />

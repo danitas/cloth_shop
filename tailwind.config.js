@@ -32,12 +32,13 @@ export default {
     },
     fontFamily: {
       base: ['Bitum', 'serif'],
-      light: ['BitumLight', 'sans-serif'],
+      baseLight: ['BitumLight', 'sans-serif'],
     },
     fontSize: {
       xs: '11px',
       sm: '12px',
       base: '13px',
+      large: '14px',
       lg: '18px',
     },
     borderRadius: {
