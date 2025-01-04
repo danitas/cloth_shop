@@ -11,7 +11,7 @@ const DesktopMenu = () => {
       </div>
 
       <a
-        href="/public"
+        href="/"
         title="Home"
         className="absolute left-1/2 flex -translate-x-1/2 transform"
       >
@@ -22,11 +22,11 @@ const DesktopMenu = () => {
         />
       </a>
 
-      <div className={`flex gap-6`}>
-        <div className="flex justify-center align-middle">
-          <div className="mx-5 flex px-9 text-base font-bold uppercase text-gray-800">
-            Customer Care
-          </div>
+      <div className="flex gap-6">
+        <div className="mx-5 flex px-9 text-base font-bold uppercase text-gray-800">
+          Customer Care
+        </div>
+        <div className="flex justify-center gap-9 align-middle">
           <LangLocaleAuth />
         </div>
         <Heart width="19" height="18" />

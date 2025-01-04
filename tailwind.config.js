@@ -12,6 +12,12 @@ export default {
       lg: '976px',
       xl: '1440px',
     },
+    container: {
+      padding: {
+        DEFAULT: '1rem',
+        lg: '2rem',
+      },
+    },
     colors: {
       black: '#020202',
       white: '#ffffff',
