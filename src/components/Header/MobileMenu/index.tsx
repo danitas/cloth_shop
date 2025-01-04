@@ -1,7 +1,7 @@
 import Sidebar from '@components/Sidebar';
 import { Heart, Search, ShoppingBag, X } from 'lucide-react';
 import BurgerMobileButton from '@components/BurgerMobileButton';
-import MobileLogo from '@components/MobileLogo';
+import MobileLogo from '../../Mobile/Logo';
 import { useSidebarContext } from '@context/SidebarContext';
 
 const MobileMenu = () => {
