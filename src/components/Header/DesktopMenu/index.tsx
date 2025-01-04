@@ -1,4 +1,4 @@
-import NavigationList from '../../NavigationList';
+import NavigationList from '@components/NavigationList';
 import { ShoppingBag, Search, Heart } from 'lucide-react';
 import LangLocaleAuth from '@components/LangLocaleAuth';
 import logoLG from '@assets/images/logo_lg.svg';
