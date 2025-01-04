@@ -1,5 +1,5 @@
-import MobileNavigation from '@components/Header/MobileNavigation';
-import DesktopNavigation from '@components/Header/DesktopNavigation';
+import MobileNavigation from './MobileNavigation';
+import DesktopNavigation from './DesktopNavigation';
 
 const NavigationList = () => {
   return (

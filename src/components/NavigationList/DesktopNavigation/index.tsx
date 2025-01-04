@@ -1,4 +1,4 @@
-import { desktopNavigationItems } from '../../../data/navigatin.ts';
+import { desktopNavigationItems } from '@data/navigation.ts';
 
 const DesktopNavigation = () => {
   return (
@@ -8,7 +8,7 @@ const DesktopNavigation = () => {
           <a
             href={item.url}
             key={item.id}
-            className="text-gray-800 mx-5 flex text-base font-bold uppercase"
+            className="mx-5 flex text-base font-bold uppercase text-gray-800"
           >
             {item.name}
           </a>
@@ -18,7 +18,7 @@ const DesktopNavigation = () => {
                 <a
                   href={child.url}
                   key={child.id}
-                  className="text-gray-600 hover:bg-gray-100 block px-4 py-2"
+                  className="block px-4 py-2 text-gray-600 hover:bg-gray-100"
                 >
                   {child.name}
                 </a>

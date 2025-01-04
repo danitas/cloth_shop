@@ -1,4 +1,4 @@
-import { mobileNavigationItems } from '../../../data/navigatin.ts';
+import { mobileNavigationItems } from '@data/navigation.ts';
 
 const MobileNavigation = () => {
   return (
@@ -7,7 +7,7 @@ const MobileNavigation = () => {
         <a
           href={item.url}
           key={item.id}
-          className="text-gray-800 flex py-4 text-lg font-bold uppercase"
+          className="flex py-4 text-lg font-bold uppercase text-gray-800"
         >
           {item.name}
         </a>

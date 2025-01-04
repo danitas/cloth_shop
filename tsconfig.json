@@ -5,7 +5,9 @@
       "@pages/*": ["./src/pages/*"],
       "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
-      "@services/*": ["./src/services/*"]
+      "@context/*": ["./src/context/*"],
+      "@services/*": ["./src/services/*"],
+      "@data/*": ["./src/data/*"]
     }
   },
   "files": [],

@@ -17,7 +17,9 @@
       "@pages/*": ["./src/pages/*"],
       "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
-      "@services/*": ["./src/services/*"]
+      "@services/*": ["./src/services/*"],
+      "@context/*": ["./src/context/*"],
+      "@data/*": ["./src/data/*"],
     },
 
     /* Linting */
