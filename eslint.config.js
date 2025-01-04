@@ -41,11 +41,17 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
+      'linebreak-style': ['error', 'windows'],
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
       ],
-      'prettier/prettier': 'warn',
+      'prettier/prettier': [
+        'warn',
+        {
+          endOfLine: 'crlf',
+        },
+      ],
       'tailwindcss/classnames-order': 'warn',
       'tailwindcss/no-custom-classname': 'off',
       '@typescript-eslint/consistent-type-definitions': 'off',
