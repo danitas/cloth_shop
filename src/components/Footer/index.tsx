@@ -2,7 +2,7 @@ import FooterSocials from '@components/Footer/FooterSocials';
 import Subscribe from '@components/Subscribe';
 import SubscribeForm from '@components/SubscribeForm';
 import FooterSubscriberBlock from '@components/Footer/FooterSubscriberBlock';
-import FooterMobileNavigation from '../../components/Footer/FooterMobileNavigation';
+import FooterMobileNavigation from '@components/Footer/FooterMobileNavigation';
 import FooterDesktopNavigation from '@components/Footer/FooterDesktopNavigation';
 import FooterCoop from '@components/Footer/FooterCoop';
 import FooterPay from '@components/Footer/FooterPay';

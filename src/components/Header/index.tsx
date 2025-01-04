@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import MobileMenu from './MobileMenu';
-import DesktopMenu from './DesktopMenu';
+import MobileMenu from '@components/Header/MobileMenu';
+import DesktopMenu from '@components/Header/DesktopMenu';
 
 const Header = () => {
   return (

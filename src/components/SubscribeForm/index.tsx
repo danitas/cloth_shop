@@ -4,7 +4,7 @@ const SubscribeForm = () => {
       <div className="relative mb-6">
         <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
           <svg
-            className="text-gray-500 h-4 w-4"
+            className="h-4 w-4 text-gray-500"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

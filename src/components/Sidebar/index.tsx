@@ -1,7 +1,7 @@
-import { useSidebarContext } from '../../context/SidebarContext.tsx';
-import NavigationList from '../NavigationList';
+import { useSidebarContext } from '@context/SidebarContext.tsx';
 import MobileHeader from '@components/MobileHeader';
 import LangLocaleAuth from '@components/LangLocaleAuth';
+import NavigationList from '@components/NavigationList';
 
 const Sidebar = () => {
   const { isSmallOpen } = useSidebarContext();
