@@ -1,6 +1,6 @@
-import { useSidebarContext } from '../../context/SidebarContext.tsx';
+import { useSidebarContext } from '@context/SidebarContext.tsx';
 import NavigationList from '../NavigationList';
-import MobileHeader from '@components/MobileHeader';
+import MobileHeader from '../Mobile/Header';
 import LangLocaleAuth from '@components/LangLocaleAuth';
 
 const Sidebar = () => {

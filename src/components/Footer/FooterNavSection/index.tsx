@@ -34,7 +34,7 @@ const FooterNavSection = ({
         <a
           href={item.url}
           key={item.id}
-          className="font-baseLight flex py-1 text-sm capitalize"
+          className="flex py-1 font-baseLight text-sm capitalize"
         >
           {item.name}
         </a>

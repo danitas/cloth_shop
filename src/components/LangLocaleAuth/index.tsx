@@ -1,10 +1,11 @@
-import Locale from '@components/Locale';
-import Lang from '@components/Lang';
+import Locale from '@components/LangLocaleAuth/Locale';
+import Lang from '@components/LangLocaleAuth/Lang';
 import { UserRound, UserRoundCheck } from 'lucide-react';
 import { useState } from 'react';
 
 const LangLocaleAuth = () => {
   const { isLoggedIn, setIsLoggedIn } = useState();
+
   return (
     <>
       <Lang />

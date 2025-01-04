@@ -19,7 +19,7 @@
       "@components/*": ["./src/components/*"],
       "@services/*": ["./src/services/*"],
       "@context/*": ["./src/context/*"],
-      "@data/*": ["./src/data/*"],
+      "@data/*": ["./src/data/*"]
     },
 
     /* Linting */

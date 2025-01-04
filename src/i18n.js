@@ -2,8 +2,8 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import FooterFollowsDE from '@components/Footer/FooterFollows/index.de.json';
 import FooterFollowsEN from '@components/Footer/FooterFollows/index.en.json';
-import SubscribeEN from '@components/Subscribe/index.en.json';
-import SubscribeDE from '@components/Subscribe/index.de.json';
+import SubscribeEN from '@components/Footer/Subscribe/index.en.json';
+import SubscribeDE from '@components/Footer/Subscribe/index.de.json';
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next

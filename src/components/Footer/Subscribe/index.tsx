@@ -1,4 +1,4 @@
-import SubscribeForm from '@components/SubscribeForm';
+import SubscribeForm from '@components/Footer/SubscribeForm';
 import { t } from 'i18next';
 
 const Subscribe = () => {
