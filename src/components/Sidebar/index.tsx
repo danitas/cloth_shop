@@ -1,5 +1,5 @@
 import { useSidebarContext } from '@context/SidebarContext.tsx';
-import MobileHeader from '@components/MobileHeader';
+import MobileHeader from '@components/Mobile/Header';
 import LangLocaleAuth from '@components/LangLocaleAuth';
 import NavigationList from '@components/NavigationList';
 
