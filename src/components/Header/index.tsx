@@ -1,13 +1,13 @@
-import clsx from 'clsx';
 import MobileMenu from './MobileMenu';
 import DesktopMenu from './DesktopMenu';
+import useScreenSize from '../../hooks/useScreenSize.ts';
 
 const Header = () => {
+  const { isLgUp } = useScreenSize();
   return (
-    <header className={clsx('relative')}>
+    <header className="relative">
       <div className="min-h-11 justify-center border-b p-4 lg:p-8">
-        <MobileMenu />
-        <DesktopMenu />
+        {isLgUp ? <DesktopMenu /> : <MobileMenu />}
       </div>
     </header>
   );

@@ -7,7 +7,8 @@
       "@components/*": ["./src/components/*"],
       "@context/*": ["./src/context/*"],
       "@services/*": ["./src/services/*"],
-      "@data/*": ["./src/data/*"]
+      "@data/*": ["./src/data/*"],
+      "@shared/*": ["./src/shared/*"]
     }
   },
   "files": [],

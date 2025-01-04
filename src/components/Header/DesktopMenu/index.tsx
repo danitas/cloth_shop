@@ -2,6 +2,7 @@ import NavigationList from '../../NavigationList';
 import { ShoppingBag, Search, Heart } from 'lucide-react';
 import LangLocaleAuth from '@components/LangLocaleAuth';
 import logoLG from '@assets/images/logo_lg.svg';
+import Typography from '@shared/Typography';
 
 const DesktopMenu = () => {
   return (
@@ -24,9 +25,14 @@ const DesktopMenu = () => {
 
       <div className={`flex gap-6`}>
         <div className="flex justify-center align-middle">
-          <div className="mx-5 flex px-9 text-base font-bold uppercase text-gray-800">
+          <Typography
+            weight="bold"
+            size="sm"
+            uppercase
+            className="mx-5 flex px-9"
+          >
             Customer Care
-          </div>
+          </Typography>
           <LangLocaleAuth />
         </div>
         <Heart width="19" height="18" />

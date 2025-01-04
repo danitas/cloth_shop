@@ -2,7 +2,7 @@ import {
   FooterBuyersNav,
   FooterCatalogueNav,
   FooterCompanyNav,
-} from '../../../data/footer.ts';
+} from '@data/footer.ts';
 import FooterNavSection from '../FooterNavSection';
 
 // Main FooterMobileNavigation Component

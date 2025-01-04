@@ -1,0 +1,49 @@
+@import '../../styles';
+
+.typography {
+  font-family:  Bitum, serif;
+}
+
+.variant-primary {
+  color: apply-color('text-primary');
+}
+
+.weight-thin {
+  font-weight: 100;
+}
+
+.weight-normal {
+  font-weight: 400;
+}
+
+.weight-bold {
+  font-weight: 600;
+}
+
+.size-xxs {
+  font-size: 0.25rem;
+}
+
+.size-xs {
+  font-size: 0.5rem;
+}
+
+.size-sm {
+  font-size: 0.8rem;
+}
+
+.size-md {
+  font-size: 1rem;
+}
+
+.size-lg {
+  font-size: 1.125rem;
+}
+
+.size-xl {
+  font-size: 1.5rem;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}

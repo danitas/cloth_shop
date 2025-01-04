@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Typography from '@shared/Typography';
 
 type FooterNavSectionProps = {
   title: string;
@@ -23,7 +24,9 @@ const FooterNavSection = ({
       'lg:w-1/4': !multiColumns,
     })}
   >
-    <h2 className="uppercase">{title}</h2>
+    <Typography tag="h2" uppercase>
+      {title}
+    </Typography>
     <div
       className={clsx({
         'lg:grid lg:grid-cols-2': multiColumns,
@@ -31,13 +34,15 @@ const FooterNavSection = ({
       })}
     >
       {navItems.map((item) => (
-        <a
+        <Typography
+          tag="a"
           href={item.url}
           key={item.id}
-          className="flex py-1 font-baseLight text-sm capitalize"
+          size="sm"
+          className="flex py-1 font-baseLight capitalize"
         >
           {item.name}
-        </a>
+        </Typography>
       ))}
     </div>
   </div>
