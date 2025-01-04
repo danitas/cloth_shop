@@ -1,7 +1,7 @@
 import { Heart, Search, ShoppingBag, X } from 'lucide-react';
 import BurgerMobileButton from '@components/BurgerMobileButton';
-import { useSidebarContext } from '../../context/SidebarContext.tsx';
-import MobileLogo from '@components/MobileLogo';
+import { useSidebarContext } from '@context/SidebarContext.tsx';
+import MobileLogo from '../Logo';
 
 const MobileHeader = () => {
   const { isSmallOpen, close } = useSidebarContext();

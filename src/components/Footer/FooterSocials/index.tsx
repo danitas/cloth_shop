@@ -1,4 +1,4 @@
-import CustomerSupport from '@components/CustomerSupport';
+import CustomerSupport from '../CustomerSupport';
 import FooterFollows from '@components/Footer/FooterFollows';
 
 const FooterSocials = () => {
