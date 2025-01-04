@@ -1,4 +1,4 @@
-import NavigationList from '../NavigationList';
+import NavigationList from '../../NavigationList';
 import { ShoppingBag, Search, Heart } from 'lucide-react';
 import LangLocaleAuth from '@components/LangLocaleAuth';
 import logoLG from '@assets/images/logo_lg.svg';
@@ -11,7 +11,7 @@ const DesktopMenu = () => {
       </div>
 
       <a
-        href="/"
+        href="/public"
         title="Home"
         className="absolute left-1/2 flex -translate-x-1/2 transform"
       >
@@ -24,7 +24,7 @@ const DesktopMenu = () => {
 
       <div className={`flex gap-6`}>
         <div className="flex justify-center align-middle">
-          <div className="text-gray-800 mx-5 flex px-9 text-base font-bold uppercase">
+          <div className="mx-5 flex px-9 text-base font-bold uppercase text-gray-800">
             Customer Care
           </div>
           <LangLocaleAuth />
