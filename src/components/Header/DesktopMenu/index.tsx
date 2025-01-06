@@ -1,4 +1,4 @@
-import NavigationList from '../../NavigationList';
+import NavigationList from '@components/NavigationList';
 import { ShoppingBag, Search, Heart } from 'lucide-react';
 import LangLocaleAuth from '@components/LangLocaleAuth';
 import logoLG from '@assets/images/logo_lg.svg';
@@ -12,29 +12,28 @@ const DesktopMenu = () => {
       </div>
 
       <a
-        href="/public"
+        href="/"
         title="Home"
-        className="absolute left-1/2 flex -translate-x-1/2 transform"
+        className="absolute left-1/2 z-20 flex -translate-x-1/2 transform"
       >
         <img
-          className="mx-auto hidden h-9 w-60 lg:flex"
+          className="mx-auto hidden lg:flex lg:h-6 lg:w-[150px] xl:h-9 xl:w-60"
           src={logoLG}
           alt="logo"
         />
       </a>
 
-      <div className={`flex gap-6`}>
-        <div className="flex justify-center align-middle">
+      <div className="flex lg:gap-2 xl:gap-6">
           <Typography
             weight="bold"
-            size="sm"
             uppercase
-            className="mx-5 flex px-9"
+            className="flex lg:mx-3 lg:px-2 lg:text-xs xl:mx-5 xl:px-9 xl:text-base"
           >
             Customer Care
           </Typography>
+          <div className="flex justify-center align-middle lg:gap-2 xl:gap-9">
           <LangLocaleAuth />
-        </div>
+          </div>
         <Heart width="19" height="18" />
         <Search width="19" height="18" />
         <ShoppingBag width="19" height="18" />

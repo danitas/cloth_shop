@@ -8,7 +8,9 @@
       "@context/*": ["./src/context/*"],
       "@services/*": ["./src/services/*"],
       "@data/*": ["./src/data/*"],
-      "@shared/*": ["./src/shared/*"]
+      "@shared/*": ["./src/shared/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@src/*": ["./src/*"]
     }
   },
   "files": [],

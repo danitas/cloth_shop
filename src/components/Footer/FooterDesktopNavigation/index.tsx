@@ -3,7 +3,7 @@ import {
   FooterCatalogueNav,
   FooterCompanyNav,
 } from '@data/footer.ts';
-import FooterNavSection from '../FooterNavSection';
+import FooterNavSection from '@components/Footer/FooterNavSection';
 
 // Main FooterMobileNavigation Component
 const FooterMobileNavigation = () => {

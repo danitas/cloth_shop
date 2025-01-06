@@ -1,5 +1,5 @@
 import React from 'react';
-import { SidebarProvider } from '../../context/SidebarContext.tsx';
+import { SidebarProvider } from '@context/SidebarContext.tsx';
 import Footer from '@components/Footer';
 import Header from '@components/Header';
 
