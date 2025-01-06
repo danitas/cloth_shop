@@ -3,7 +3,7 @@ export const mobileNavigationItems = [
     id: 'shoes',
     name: 'Shoes',
     url: '/shoes',
-    children: [
+    subCategories: [
       { id: 'boots', name: 'Boots', url: '/boots' },
       { id: 'cowbooties', name: 'Cowbooties', url: '/cowbooties' },
       { id: 'kneeBoots', name: 'Knee Boots', url: '/knee-boots' },
@@ -29,7 +29,7 @@ export const mobileNavigationItems = [
     id: 'bags',
     name: 'Bags',
     url: '/bags',
-    children: [
+    subCategories: [
       { id: 'baguettes', name: 'Baguettes', url: '/baguettes' },
       { id: 'miniBags', name: 'Mini Bags', url: '/mini-bags' },
       { id: 'shoulderBags', name: 'Shoulder Bags', url: '/shoulder-bags' },
@@ -41,7 +41,7 @@ export const mobileNavigationItems = [
     id: 'clothing',
     name: 'Clothing',
     url: '/clothing',
-    children: [
+    subCategories: [
       { id: 'coat', name: 'Coat', url: '/coat' },
       { id: 'dresses', name: 'Dresses', url: '/dresses' },
       {
@@ -66,7 +66,7 @@ export const mobileNavigationItems = [
     id: 'shoeLoversClub',
     name: 'Shoelovers Club',
     url: '/shoe-lovers-club',
-    children: [
+    subCategories: [
       { id: 'allNews', name: '#AllNews', url: '/all-news' },
       { id: 'collections', name: '#Collections', url: '/collections' },
       {
@@ -105,7 +105,7 @@ export const desktopNavigationItems = [
     id: 'shoes',
     name: 'Shoes',
     url: '/shoes',
-    children: [
+    subCategories: [
       { id: 'boots', name: 'Boots', url: '/boots' },
       { id: 'cowbooties', name: 'Cowbooties', url: '/cowbooties' },
       { id: 'kneeBoots', name: 'Knee Boots', url: '/knee-boots' },
@@ -131,7 +131,7 @@ export const desktopNavigationItems = [
     id: 'bags',
     name: 'Bags',
     url: '/bags',
-    children: [
+    subCategories: [
       { id: 'baguettes', name: 'Baguettes', url: '/baguettes' },
       { id: 'miniBags', name: 'Mini Bags', url: '/mini-bags' },
       { id: 'shoulderBags', name: 'Shoulder Bags', url: '/shoulder-bags' },
@@ -143,7 +143,7 @@ export const desktopNavigationItems = [
     id: 'clothing',
     name: 'Clothing',
     url: '/clothing',
-    children: [
+    subCategories: [
       { id: 'coat', name: 'Coat', url: '/coat' },
       { id: 'dresses', name: 'Dresses', url: '/dresses' },
       {
@@ -168,7 +168,7 @@ export const desktopNavigationItems = [
     id: 'shoeLoversClub',
     name: 'Shoelovers Club',
     url: '/shoe-lovers-club',
-    children: [
+    subCategories: [
       { id: 'allNews', name: '#AllNews', url: '/all-news' },
       { id: 'collections', name: '#Collections', url: '/collections' },
       {
@@ -198,4 +198,17 @@ export const desktopNavigationItems = [
       { id: 'speakTheTea', name: '#SpeakTheTea', url: '/speak-the-tea' },
     ],
   },
+];
+
+export const navigationLinks = [
+  { id: 'newIn', name: 'New In', url: '/new-arrivals' },
+  {
+    id: 'holidayCollection',
+    name: 'Holiday Collection',
+    url: '/holiday-collection',
+  },
+  { id: 'sale', name: 'Sale', url: '/sale' },
+  { id: 'comingSoon', name: 'Coming Soon', url: '/coming-soon' },
+  { id: 'giftCard', name: 'Gift cards', url: '/gift-card' },
+  { id: 'accessory', name: 'Accessory', url: '/accessory' },
 ];

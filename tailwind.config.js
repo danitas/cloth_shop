@@ -12,6 +12,12 @@ export default {
       lg: '976px',
       xl: '1440px',
     },
+    container: {
+      padding: {
+        DEFAULT: '1rem',
+        lg: '2rem',
+      },
+    },
     colors: {
       black: '#020202',
       white: '#ffffff',
@@ -21,12 +27,12 @@ export default {
         dark: '#333333',
       },
       blue: {
-        DEFAULT: '#213547', // Taken from :root (light mode)
-        hover: '#747bff', // Matches hover state
+        DEFAULT: '#213547',
+        hover: '#747bff',
       },
-      ring: '#00000047', // Used in focus ring
+      ring: '#00000047',
       button: {
-        DEFAULT: '#f9f9f9', // Button background in light mode
+        DEFAULT: '#f9f9f9',
         hover: '#646cff',
       },
     },
