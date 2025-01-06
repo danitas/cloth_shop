@@ -24,16 +24,16 @@ const DesktopMenu = () => {
       </a>
 
       <div className="flex lg:gap-2 xl:gap-6">
-          <Typography
-            weight="bold"
-            uppercase
-            className="flex lg:mx-3 lg:px-2 lg:text-xs xl:mx-5 xl:px-9 xl:text-base"
-          >
-            Customer Care
-          </Typography>
-          <div className="flex justify-center align-middle lg:gap-2 xl:gap-9">
+        <Typography
+          weight="bold"
+          uppercase
+          className="flex lg:mx-3 lg:px-2 lg:text-xs xl:mx-5 xl:px-9 xl:text-base"
+        >
+          Customer Care
+        </Typography>
+        <div className="flex justify-center align-middle lg:gap-2 xl:gap-9">
           <LangLocaleAuth />
-          </div>
+        </div>
         <Heart width="19" height="18" />
         <Search width="19" height="18" />
         <ShoppingBag width="19" height="18" />
