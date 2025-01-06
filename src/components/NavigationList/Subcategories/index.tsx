@@ -13,7 +13,7 @@ const Subcategories = ({
   isLastItem,
 }: {
   subCategories?: TSharedCategory[];
-  isLastItem: boolean;
+  isLastItem?: boolean;
 }) => {
   if (!subCategories?.length) return null;
 
