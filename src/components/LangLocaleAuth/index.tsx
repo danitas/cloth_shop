@@ -4,7 +4,7 @@ import { UserRound, UserRoundCheck } from 'lucide-react';
 import { useState } from 'react';
 
 const LangLocaleAuth = () => {
-  const { isLoggedIn, setIsLoggedIn } = useState();
+  const [isLoggedIn, setIsLoggedIn] = useState();
 
   return (
     <>

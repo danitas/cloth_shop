@@ -1,16 +1,21 @@
 import { mobileNavigationItems } from '@data/navigation.ts';
+import Typography from '@shared/Typography';
 
 const MobileNavigation = () => {
   return (
     <div className="flex-col py-4 sm:flex lg:hidden">
       {mobileNavigationItems.map((item) => (
-        <a
+        <Typography
+          tag="a"
           href={item.url}
           key={item.id}
-          className="flex py-4 text-lg font-bold uppercase text-gray-800"
+          weight="bold"
+          size="lg"
+          uppercase
+          className="flex py-4"
         >
           {item.name}
-        </a>
+        </Typography>
       ))}
     </div>
   );
