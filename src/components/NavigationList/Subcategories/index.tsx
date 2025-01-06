@@ -25,9 +25,7 @@ const Subcategories = ({
             <SubcategoriesLinks subCategories={subCategories} />
             <NavigationLinks subCategories={navigationLinks} />
           </div>
-          <NewArrivalsNavDD
-            imgSource={isLastItem ? imgLast : img}
-          ></NewArrivalsNavDD>
+          <NewArrivalsNavDD imgSource={isLastItem ? imgLast : img} />
         </div>
       </div>
     </div>

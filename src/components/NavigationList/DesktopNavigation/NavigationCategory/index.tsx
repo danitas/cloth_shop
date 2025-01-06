@@ -2,6 +2,7 @@ import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import clsx from 'clsx';
 import Subcategories from '../../Subcategories';
+import classes from './styles.module.scss';
 
 export type TSharedCategory = {
   id: string;
@@ -32,10 +33,7 @@ const NavigationCategory = ({
       onMouseEnter={toggleChevron}
       onMouseLeave={toggleChevron}
     >
-      <a
-        href={url}
-        className="flex items-center font-bold uppercase text-black first:ml-0 hover:text-black lg:mx-2 lg:text-xs xl:mx-7 xl:text-base"
-      >
+      <a href={url} className={clsx(classes.dropDownTitle)}>
         {name}
         {subCategories?.length && (
           <ChevronDown
