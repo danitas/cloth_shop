@@ -7,9 +7,10 @@ import { useState } from 'react';
 const MobileNavigation = () => {
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
 
-  const toggleChevron = (id: string, event: React.MouseEvent) => {
-    event.stopPropagation();
-    event.preventDefault();
+  const toggleChevron = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+
     setOpenItems((prev) => ({
       ...prev,
       [id]: !prev[id],
