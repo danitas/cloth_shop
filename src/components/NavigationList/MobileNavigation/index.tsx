@@ -22,7 +22,10 @@ const MobileNavigation = () => {
         <div key={item.id}>
           <a
             href={item.url}
-            className="flex py-4 text-lg font-bold uppercase text-gray-800"
+            className={clsx(
+              openItems[item.id] && 'underline',
+              'flex py-4 text-lg font-bold uppercase text-gray-800'
+            )}
           >
             {item.name}
             {item.subCategories?.length && (
@@ -43,11 +46,8 @@ const MobileNavigation = () => {
             )}
           </a>
 
-          {openItems[item.id] && ( // Only show the dropdown for the current open item
-            <SubcategoriesLinks
-              subCategories={item.subCategories}
-              isMobile={true}
-            />
+          {openItems[item.id] && (
+            <SubcategoriesLinks subCategories={item.subCategories} />
           )}
         </div>
       ))}

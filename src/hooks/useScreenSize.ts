@@ -10,6 +10,9 @@ interface ScreenSize {
   isSmUp: boolean;
   isMdUp: boolean;
   isLgUp: boolean;
+  isSmDown: boolean;
+  isMdDown: boolean;
+  isLgDown: boolean;
 }
 
 const useScreenSize = (): ScreenSize => {
@@ -17,6 +20,9 @@ const useScreenSize = (): ScreenSize => {
     isSmUp: false,
     isMdUp: false,
     isLgUp: false,
+    isSmDown: false,
+    isMdDown: false,
+    isLgDown: false,
   });
 
   const handleResize = () => {
@@ -24,6 +30,9 @@ const useScreenSize = (): ScreenSize => {
       isSmUp: window.innerWidth >= breakpoints.sm,
       isMdUp: window.innerWidth >= breakpoints.md,
       isLgUp: window.innerWidth >= breakpoints.lg,
+      isSmDown: window.innerWidth < breakpoints.sm,
+      isMdDown: window.innerWidth < breakpoints.md,
+      isLgDown: window.innerWidth < breakpoints.lg,
     });
   };
 
