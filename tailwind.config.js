@@ -46,6 +46,7 @@ export default {
       sm: '12px',
       base: '13px',
       large: '14px',
+      md: '16px',
       lg: '18px',
     },
     borderRadius: {
