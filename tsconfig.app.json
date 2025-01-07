@@ -19,6 +19,8 @@
       "@components/*": ["./src/components/*"],
       "@services/*": ["./src/services/*"],
       "@context/*": ["./src/context/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@shared/*": ["./src/shared/*"],
       "@data/*": ["./src/data/*"],
       "@src/*": ["./src/*"]
     },

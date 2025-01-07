@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import Typography from '@shared/Typography';
 
 const Lang = () => {
   const { t, i18n } = useTranslation(); // Get the 't' function and 'i18n' instance for language handling
@@ -8,9 +9,9 @@ const Lang = () => {
   };
 
   return (
-    <>
-      <p className="uppercase lg:text-xs xl:text-base">{i18n.language}</p>
-    </>
+    <Typography className="lg:text-xs xl:text-base" uppercase>
+      {i18n.language}
+    </Typography>
   );
 };
 
