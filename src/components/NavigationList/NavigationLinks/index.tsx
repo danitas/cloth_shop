@@ -25,7 +25,7 @@ const NavigationLinks = ({
           href={link.url}
           key={link.id}
           className={clsx(
-            'nav-link relative py-2 text-base uppercase',
+            'nav-link relative py-2 text-base uppercase hover:underline',
             isMobile ? 'flex flex-shrink-0 px-8 first:pl-0' : 'block'
           )}
         >

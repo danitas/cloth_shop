@@ -21,17 +21,30 @@ const NavigationCategory = ({
   subCategories,
   isLastItem,
 }: TCategoryProps) => {
-  const [isChevronDown, setIsChevronDown] = useState(true);
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [hoverTimeout, setHoverTimeout] = useState<number | null>(null);
 
-  const toggleChevron = () => {
-    setIsChevronDown(!isChevronDown);
+  const handleMouseEnter = () => {
+    const timeout = window.setTimeout(() => {
+      setIsDropdownVisible(true);
+    }, 350);
+    setHoverTimeout(timeout);
+  };
+
+  const handleMouseLeave = () => {
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout);
+      setHoverTimeout(null);
+    }
+    setIsDropdownVisible(false);
   };
 
   return (
     <div
-      className="group flex items-center"
-      onMouseEnter={toggleChevron}
-      onMouseLeave={toggleChevron}
+      className="flex items-center"
+      onMouseEnter={handleMouseEnter}
+      onFocus={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <a href={url} className={clsx(classes.dropDownTitle)}>
         {name}
@@ -40,12 +53,16 @@ const NavigationCategory = ({
             size="13"
             className={clsx(
               'ml-2 transition-transform duration-300 ease-in-out',
-              isChevronDown ? 'rotate-0' : 'rotate-180'
+              isDropdownVisible ? 'rotate-0' : 'rotate-180'
             )}
           />
         )}
       </a>
-      <Subcategories subCategories={subCategories} isLastItem={isLastItem} />
+      <Subcategories
+        subCategories={subCategories}
+        isLastItem={isLastItem}
+        isVisible={isDropdownVisible}
+      />
     </div>
   );
 };
