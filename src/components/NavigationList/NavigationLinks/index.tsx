@@ -15,7 +15,7 @@ const NavigationLinks = ({
     <div
       className={clsx(
         classes.customScrollbar,
-        'w-full',
+        'w-full lg:w-auto',
         isMobile
           ? 'customScrollbar flex flex-nowrap overflow-x-auto py-5 pl-[15px]'
           : ''
@@ -26,7 +26,7 @@ const NavigationLinks = ({
           href={link.url}
           key={link.id}
           className={clsx(
-            'nav-link relative text-base uppercase',
+            'nav-link relative py-2 text-base uppercase',
             isMobile ? 'flex flex-shrink-0 px-8 first:pl-0' : 'block'
           )}
         >
