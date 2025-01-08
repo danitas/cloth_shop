@@ -16,9 +16,8 @@ const NavigationLinks = ({
       className={clsx(
         classes.customScrollbar,
         'w-full lg:w-auto',
-        isMobile
-          ? 'customScrollbar flex flex-nowrap overflow-x-auto py-5 pl-[15px]'
-          : ''
+        isMobile &&
+          'customScrollbar flex flex-nowrap overflow-x-auto py-5 pl-[15px]'
       )}
     >
       {subCategories.map((link) => (
