@@ -22,20 +22,12 @@ const NavigationCategory = ({
   isLastItem,
 }: TCategoryProps) => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
-  const [hoverTimeout, setHoverTimeout] = useState<number | null>(null);
 
   const handleMouseEnter = () => {
-    const timeout = window.setTimeout(() => {
-      setIsDropdownVisible(true);
-    }, 350);
-    setHoverTimeout(timeout);
+    setIsDropdownVisible(true);
   };
 
   const handleMouseLeave = () => {
-    if (hoverTimeout) {
-      clearTimeout(hoverTimeout);
-      setHoverTimeout(null);
-    }
     setIsDropdownVisible(false);
   };
 
