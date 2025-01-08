@@ -23,18 +23,18 @@ const Subcategories = ({
     <div
       className={clsx(
         classes.subcategoryWrapper,
-        isVisible ? 'visible opacity-100' : 'invisible opacity-0',
-        'transition-opacity duration-300 ease-in-out'
+        isVisible
+          ? 'visible translate-y-0 opacity-100'
+          : 'invisible translate-y-2 opacity-0',
+        'transition-all duration-500 ease-in-out'
       )}
     >
-      <div className="border-t">
-        <div className="mx-20 flex justify-between py-6 lg:h-[305px]">
-          <div className="flex h-full">
-            <SubcategoriesLinks subCategories={subCategories} />
-            <NavigationLinks subCategories={navigationLinks} />
-          </div>
-          <NewArrivalsNavDD imgSource={isLastItem ? imgLast : img} />
+      <div className="mx-20 flex justify-between py-6 lg:h-[305px]">
+        <div className="flex h-full">
+          <SubcategoriesLinks subCategories={subCategories} />
+          <NavigationLinks subCategories={navigationLinks} />
         </div>
+        <NewArrivalsNavDD imgSource={isLastItem ? imgLast : img} />
       </div>
     </div>
   );

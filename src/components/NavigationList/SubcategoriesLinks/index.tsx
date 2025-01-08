@@ -27,8 +27,8 @@ const SubcategoriesLinks = ({
           className={
             isMdDown
               ? subCategories.length < 8
-                ? 'text-md flex w-full py-2 font-baseLight'
-                : 'text-md flex w-1/2 py-2 font-baseLight'
+                ? 'flex w-full py-2 font-baseLight text-md'
+                : 'flex w-1/2 py-2 font-baseLight text-md'
               : 'block px-4 py-2 text-base text-black hover:text-black hover:underline'
           }
         >

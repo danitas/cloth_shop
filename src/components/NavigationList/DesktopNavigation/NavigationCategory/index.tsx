@@ -41,7 +41,7 @@ const NavigationCategory = ({
 
   return (
     <div
-      className="flex items-center"
+      className="flex items-center pb-4 lg:pb-8"
       onMouseEnter={handleMouseEnter}
       onFocus={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
