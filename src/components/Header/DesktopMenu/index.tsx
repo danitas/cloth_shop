@@ -7,7 +7,7 @@ import Typography from '@shared/Typography';
 const DesktopMenu = () => {
   return (
     <div className={`relative hidden items-center justify-between lg:flex`}>
-      <div className={`flex-grow-1 flex gap-4`}>
+      <div className={`flex-grow-1 flex gap-4 pt-4 lg:pt-8`}>
         <NavigationList />
       </div>
 
