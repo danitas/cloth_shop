@@ -207,7 +207,7 @@ export const navigationLinks = [
     name: 'Holiday Collection',
     url: '/holiday-collection',
   },
-  { id: 'sale', name: 'Sale', url: '/sale' },
+  { id: 'sale', name: 'Sale', url: '/sale', isSale: true },
   { id: 'comingSoon', name: 'Coming Soon', url: '/coming-soon' },
   { id: 'giftCard', name: 'Gift cards', url: '/gift-card' },
   { id: 'accessory', name: 'Accessory', url: '/accessory' },

@@ -8,6 +8,7 @@ export type TSharedCategory = {
   id: string;
   url: string;
   name: string;
+  isSale?: boolean;
 };
 
 type TCategoryProps = TSharedCategory & {
