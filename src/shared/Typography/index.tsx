@@ -11,6 +11,7 @@ type variant =
   | 'danger';
 type weight = 'bold' | 'normal' | 'thin';
 type size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type TRel = 'noopener' | 'noreferrer' | 'nofollow';
 
 export type TTypographyTags<T extends keyof JSX.IntrinsicElements> =
   T extends 'a'
@@ -22,6 +23,9 @@ export type TTypographyTags<T extends keyof JSX.IntrinsicElements> =
         size?: size;
         className?: string;
         uppercase?: boolean;
+        title: string;
+        target?: '_blank';
+        rel?: TRel;
       }
     : {
         tag?: T;
@@ -31,6 +35,9 @@ export type TTypographyTags<T extends keyof JSX.IntrinsicElements> =
         size?: size;
         className?: string;
         uppercase?: boolean;
+        title?: string;
+        rel?: string;
+        target?: never;
       };
 
 export type TTypographyProps<T extends keyof JSX.IntrinsicElements> =
@@ -56,7 +63,14 @@ const Typography = <T extends keyof JSX.IntrinsicElements>({
   };
 
   return (
-    <Tag {...props} className={clsx(classes.typography, styles, className)}>
+    <Tag
+      {...props}
+      className={clsx(classes.typography, styles, className)}
+      // Ensure rel defaults to 'noopener' if target="_blank" and no rel is provided
+      {...(Tag === 'a' && props.target === '_blank'
+        ? { rel: props.rel ?? 'noopener' }
+        : {})}
+    >
       {children}
     </Tag>
   );

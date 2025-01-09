@@ -2,6 +2,8 @@ import React from 'react';
 import { SidebarProvider } from '@context/SidebarContext.tsx';
 import Footer from '@components/Footer';
 import Header from '@components/Header';
+import PromoSlider from '@components/PromoSlider';
+import { Promotions } from '@data/promotions.ts';
 
 type LayoutProps = React.PropsWithChildren;
 
@@ -9,6 +11,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="flex max-h-screen flex-col">
       <SidebarProvider>
+        <PromoSlider promotions={Promotions} />
         <Header />
         <main>{children}</main>
         <Footer />
