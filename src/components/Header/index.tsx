@@ -12,7 +12,7 @@ const Header = () => {
       <div
         className={clsx(
           classes.headerContainer,
-          'relative z-50 min-h-11 justify-center px-4 pb-4 pt-4 lg:px-8 lg:pb-0 lg:pt-0'
+          'relative z-50 min-h-11 justify-center px-4 pb-4 pt-2 lg:px-8 lg:pb-0 lg:pt-0'
         )}
       >
         {isLgUp ? <DesktopMenu /> : <MobileMenu />}
