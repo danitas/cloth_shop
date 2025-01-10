@@ -21,6 +21,7 @@ export default {
     colors: {
       black: '#020202',
       white: '#ffffff',
+      beige: '#F3F3F3',
       gray: {
         light: '#f7f7f7',
         DEFAULT: '#888888',
@@ -45,6 +46,7 @@ export default {
       sm: '12px',
       base: '13px',
       large: '14px',
+      md: '16px',
       lg: '18px',
     },
     borderRadius: {

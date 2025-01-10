@@ -3,6 +3,8 @@ import MobileHeader from '@components/Mobile/Header';
 import LangLocaleAuth from '@components/LangLocaleAuth';
 import clsx from 'clsx';
 import NavigationList from '@components/NavigationList';
+import NavigationLinks from '@components/NavigationList/NavigationLinks';
+import { navigationLinks } from '@data/navigation.ts';
 
 const Sidebar = () => {
   const { isSmallOpen } = useSidebarContext();
@@ -17,9 +19,13 @@ const Sidebar = () => {
         }
       )}
     >
-      <div className="flex flex-col p-4">
-        <div className="flex items-center justify-between lg:hidden">
+      <div className="flex flex-col px-4">
+        <div className="flex items-center justify-between py-2 lg:hidden">
           <MobileHeader />
+        </div>
+
+        <div className="bg-beige -mx-4">
+          <NavigationLinks subCategories={navigationLinks} />
         </div>
         <NavigationList />
       </div>
