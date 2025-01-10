@@ -23,10 +23,10 @@ const Subcategories = ({
     <div
       className={clsx(
         classes.subcategoryWrapper,
+        'transition-all duration-500 ease-in-out',
         isVisible
           ? 'visible translate-y-0 opacity-100'
-          : 'invisible translate-y-2 opacity-0',
-        'transition-all duration-500 ease-in-out'
+          : 'invisible translate-y-2 opacity-0'
       )}
     >
       <div className="mx-20 flex justify-between py-6 lg:h-[305px]">

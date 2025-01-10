@@ -20,12 +20,13 @@ const Sidebar = () => {
       )}
     >
       <div className="flex flex-col px-4">
-        <div className="flex items-center justify-between lg:hidden py-2">
+        <div className="flex items-center justify-between py-2 lg:hidden">
           <MobileHeader />
         </div>
-          <div className="bg-beige -mx-4">
-              <NavigationLinks subCategories={navigationLinks} isMobile={true} />
-          </div>
+
+        <div className="bg-beige -mx-4">
+          <NavigationLinks subCategories={navigationLinks} />
+        </div>
         <NavigationList />
       </div>
       <div className="sticky left-0 top-full bg-black p-4 text-white">

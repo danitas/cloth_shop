@@ -1,13 +1,24 @@
 import ROUTES from '@src/router.tsx';
+import { useNavigate } from 'react-router';
+import Typography from '@shared/Typography';
 
 type TImage = {
   imgSource: string;
 };
 
 const NewArrivalsNavDD = ({ imgSource }: TImage) => {
+  const navigate = useNavigate();
+
+  const handleClick = (url: string) => () => {
+    navigate(url);
+  };
+
   return (
     <div className="children-menu-banner group flex flex-col">
-      <a className="mt-4 flex flex-col" href={ROUTES.NEW_ARRIVALS}>
+      <div
+        className="mt-4 flex cursor-pointer flex-col"
+        onClick={handleClick(ROUTES.NEW_ARRIVALS)}
+      >
         <div className="overflow-hidden">
           <img
             src={imgSource}
@@ -16,12 +27,18 @@ const NewArrivalsNavDD = ({ imgSource }: TImage) => {
           />
         </div>
         <div className="mt-4 flex justify-between">
-          <p className="flex text-black hover:text-black hover:underline">
+          <Typography
+            tag="p"
+            className="hover:text-black hover:underline"
+            size="sm"
+          >
             NEW
-          </p>
-          <p className="flex text-black underline hover:text-black">to go</p>
+          </Typography>
+          <Typography tag="p" className="underline hover:text-black" size="sm">
+            to go
+          </Typography>
         </div>
-      </a>
+      </div>
     </div>
   );
 };

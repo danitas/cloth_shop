@@ -7,30 +7,29 @@ const SubcategoriesLinks = ({
 }: {
   subCategories?: TSharedCategory[];
 }) => {
-  const { isMdDown } = useScreenSize();
+  const { isMdUp } = useScreenSize();
 
   if (!subCategories?.length) return null;
 
   return (
     <div
-      className={clsx(
-        isMdDown
-          ? 'mb-4 flex'
-          : 'flex-grow-1 h-full flex-col lg:flex lg:w-[310px] xl:w-[510px]',
-        'flex-wrap'
-      )}
+      className={clsx('flex-wrap', {
+        'mb-4 flex': !isMdUp,
+        'flex-grow-1 h-full flex-col lg:flex lg:w-[310px] xl:w-[510px]': isMdUp,
+      })}
     >
       {subCategories.map((child) => (
         <a
           href={child.url}
           key={child.id}
-          className={
-            isMdDown
-              ? subCategories.length < 8
-                ? 'flex w-full py-2 font-baseLight text-md'
-                : 'flex w-1/2 py-2 font-baseLight text-md'
-              : 'block px-4 py-2 text-base text-black hover:text-black hover:underline'
-          }
+          className={clsx(
+            'block px-4 py-2 text-base text-black hover:text-black hover:underline',
+            {
+              'text-md flex px-0 font-baseLight': !isMdUp,
+              'w-full': !isMdUp && subCategories.length < 8,
+              'w-1/2': !isMdUp && subCategories.length > 8,
+            }
+          )}
         >
           {child.name}
         </a>
