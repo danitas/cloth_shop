@@ -8,6 +8,7 @@ export type TSharedCategory = {
   id: string;
   url: string;
   name: string;
+  isSale?: boolean;
 };
 
 type TCategoryProps = TSharedCategory & {
@@ -21,17 +22,22 @@ const NavigationCategory = ({
   subCategories,
   isLastItem,
 }: TCategoryProps) => {
-  const [isChevronDown, setIsChevronDown] = useState(true);
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
-  const toggleChevron = () => {
-    setIsChevronDown(!isChevronDown);
+  const handleMouseEnter = () => {
+    setIsDropdownVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDropdownVisible(false);
   };
 
   return (
     <div
-      className="group flex items-center"
-      onMouseEnter={toggleChevron}
-      onMouseLeave={toggleChevron}
+      className="flex items-center pb-4 lg:pb-8"
+      onMouseEnter={handleMouseEnter}
+      onFocus={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <a href={url} className={clsx(classes.dropDownTitle)}>
         {name}
@@ -40,12 +46,16 @@ const NavigationCategory = ({
             size="13"
             className={clsx(
               'ml-2 transition-transform duration-300 ease-in-out',
-              isChevronDown ? 'rotate-0' : 'rotate-180'
+              isDropdownVisible ? 'rotate-0' : 'rotate-180'
             )}
           />
         )}
       </a>
-      <Subcategories subCategories={subCategories} isLastItem={isLastItem} />
+      <Subcategories
+        subCategories={subCategories}
+        isLastItem={isLastItem}
+        isVisible={isDropdownVisible}
+      />
     </div>
   );
 };

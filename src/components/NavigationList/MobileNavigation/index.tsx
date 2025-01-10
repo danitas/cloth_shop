@@ -1,21 +1,63 @@
+import React from 'react';
 import { mobileNavigationItems } from '@data/navigation.ts';
-import Typography from '@shared/Typography';
+import SubcategoriesLinks from '@components/NavigationList/SubcategoriesLinks';
+import { ChevronDown } from 'lucide-react';
+import clsx from 'clsx';
+import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 const MobileNavigation = () => {
+  const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
+  const navigate = useNavigate();
+
+  const toggleChevron = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+
+    setOpenItems((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
+  const handleNavigation = (url: string) => () => {
+    navigate(url);
+  };
+
   return (
     <div className="flex-col py-4 sm:flex lg:hidden">
       {mobileNavigationItems.map((item) => (
-        <Typography
-          tag="a"
-          href={item.url}
-          key={item.id}
-          weight="bold"
-          size="lg"
-          uppercase
-          className="flex py-4"
-        >
-          {item.name}
-        </Typography>
+        <React.Fragment key={item.id}>
+          <div
+            onClick={handleNavigation(item.url)}
+            className={clsx(
+              openItems[item.id] && 'underline',
+              'flex items-center py-4 text-lg font-bold uppercase text-gray-800'
+            )}
+          >
+            {item.name}
+            {item.subCategories?.length && (
+              <div
+                onClick={(e) => {
+                  toggleChevron(item.id, e);
+                }}
+                className="ml-2 flex"
+              >
+                <ChevronDown
+                  size="13"
+                  className={clsx(
+                    'transition-transform duration-300 ease-in-out',
+                    openItems[item.id] ? 'rotate-180' : 'rotate-0'
+                  )}
+                />
+              </div>
+            )}
+          </div>
+
+          {openItems[item.id] && (
+            <SubcategoriesLinks subCategories={item.subCategories} />
+          )}
+        </React.Fragment>
       ))}
     </div>
   );

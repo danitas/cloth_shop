@@ -11,22 +11,30 @@ import imgLast from '@assets/images/navigation/menu_last.jpg';
 const Subcategories = ({
   subCategories,
   isLastItem,
+  isVisible,
 }: {
   subCategories?: TSharedCategory[];
-  isLastItem: boolean;
+  isLastItem?: boolean;
+  isVisible: boolean;
 }) => {
   if (!subCategories?.length) return null;
 
   return (
-    <div className={clsx(classes.subcategoryWrapper, 'group-hover:block')}>
-      <div className="border-t">
-        <div className="mx-20 flex justify-between py-6 lg:h-[305px]">
-          <div className="flex h-full">
-            <SubcategoriesLinks subCategories={subCategories} />
-            <NavigationLinks subCategories={navigationLinks} />
-          </div>
-          <NewArrivalsNavDD imgSource={isLastItem ? imgLast : img} />
+    <div
+      className={clsx(
+        classes.subcategoryWrapper,
+        'transition-all duration-500 ease-in-out',
+        isVisible
+          ? 'visible translate-y-0 opacity-100'
+          : 'invisible translate-y-2 opacity-0'
+      )}
+    >
+      <div className="mx-20 flex justify-between py-6 lg:h-[305px]">
+        <div className="flex h-full">
+          <SubcategoriesLinks subCategories={subCategories} />
+          <NavigationLinks subCategories={navigationLinks} />
         </div>
+        <NewArrivalsNavDD imgSource={isLastItem ? imgLast : img} />
       </div>
     </div>
   );
