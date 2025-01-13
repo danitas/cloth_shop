@@ -1,5 +1,5 @@
 .promotionContainer {
-  @apply w-full bg-black p-4 text-center;
+  @apply w-full bg-black p-2 lg:p-3 text-center;
 
   &:not(.slick-initialized) {
     @apply first:flex hidden;

@@ -1,4 +1,5 @@
 import Typography from '@shared/Typography';
+import clsx from 'clsx';
 
 type PromoTextProps = {
   text: string;
@@ -28,9 +29,14 @@ const PromoText = ({ text, linkTitle = '', link }: PromoTextProps) => {
           title={linkTitle}
           target="_blank"
           size="sm"
-          className={`text-baseLight text-white underline ${
-            parts[0] ? (parts[1] ? 'mx-1' : 'ml-1') : 'mr-1'
-          }`}
+          className={clsx(
+            'text-baseLight text-white underline hover:text-white',
+            {
+              'mx-1': parts[0] && parts[1],
+              'ml-1': parts[0] && !parts[1],
+              'mr-1': !parts[0],
+            }
+          )}
         >
           {linkTitle}
         </Typography>

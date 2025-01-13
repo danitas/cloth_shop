@@ -2,6 +2,7 @@ import PromoItem from './PromoItem';
 import classes from './styles.module.scss';
 import Slider from 'react-slick';
 import clsx from 'clsx';
+import useScreenSize from '@hooks/useScreenSize.ts';
 
 type TSharedPromo = {
   id: string;
@@ -14,18 +15,22 @@ type TPromotionProps = {
   promotions: TSharedPromo[];
 };
 
-const settings = {
-  dots: false,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 3000,
-};
-
 const PromoSlider = ({ promotions }: TPromotionProps) => {
   if (promotions.length === 0) return null;
+
+  const { isMdUp } = useScreenSize();
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    cssEase: 'ease-in-out',
+    vertical: !isMdUp,
+  };
 
   if (promotions.length === 1) {
     return (
@@ -45,7 +50,7 @@ const PromoSlider = ({ promotions }: TPromotionProps) => {
   }
 
   return (
-    <div className="bg-black">
+    <div className="cursor-pointer overflow-hidden bg-black">
       <Slider {...settings}>
         {promotions.map((promo) => (
           <div key={promo.id} className={classes.promotionContainer}>

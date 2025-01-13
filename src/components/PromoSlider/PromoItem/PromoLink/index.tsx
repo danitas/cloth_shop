@@ -12,10 +12,10 @@ const PromoLink = ({ link, linkTitle }: PromoLinkProps) => {
     <Typography
       tag="a"
       href={link}
-      title={linkTitle}
+      title={linkTitle || ''}
       target="_blank"
       size="sm"
-      className="text-baseLight mx-1 text-white underline"
+      className="text-baseLight mx-1 text-white underline hover:text-white"
     >
       {linkTitle}
     </Typography>
