@@ -51,7 +51,7 @@ const PromoSlider = ({ promotions }: TPromotionProps) => {
 
   return (
     <div className="cursor-pointer bg-black">
-      <Slider {...settings}>
+      <Slider {...settings} className="overflow-hidden">
         {promotions.map((promo) => (
           <div key={promo.id} className={classes.promotionContainer}>
             <PromoItem

@@ -24,7 +24,7 @@ const Banner = ({ pictures }: TPictures) => {
             key={pic.id}
             src={imgSrc}
             alt="Banner"
-            className="w-100 flex h-auto"
+            className="min-h-full w-full object-cover"
           />
         );
       })}

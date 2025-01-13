@@ -23,7 +23,7 @@ const DesktopMenu = () => {
         />
       </a>
 
-      <div className="flex lg:w-1/4 lg:gap-3">
+      <div className="flex justify-between lg:w-1/4 lg:gap-3">
         <Typography
           weight="bold"
           uppercase
