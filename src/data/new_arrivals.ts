@@ -4,6 +4,14 @@ import rosaliaCowBooties from '@assets/images/hp/rosaliaCowBooties.jpg';
 import miaBooties from '@assets/images/hp/miaBooties.jpg';
 import ericaBooties from '@assets/images/hp/ericaBooties.jpg';
 import donnaBagBrown from '@assets/images/hp/donnaBagBrown.jpg';
+import bagsRed from '@assets/images/hp/bagsRed.jpg';
+import shoesCabare from '@assets/images/hp/shoesCabare.jpg';
+
+import rebeccaBaguette from '@assets/images/hp/rebeccaBaguette.jpg';
+import rebeccaBaguetteHairy from '@assets/images/hp/rebeccaBaguetteHairy.jpg';
+import rebeccaBaguetteHairyBlack from '@assets/images/hp/rebeccaBaguetteHairyBlack.jpg';
+import pranzoHairy from '@assets/images/hp/pranzoHairy.jpg';
+import rBagShopper from '@assets/images/hp/rBagShopper.jpg';
 
 export const newArrivals = [
   {
@@ -189,6 +197,77 @@ export const newArrivals = [
         price: '12,500',
         currency: 'USD',
         image: donnaBagBrown,
+      },
+    ],
+  },
+];
+
+export const quadroCategoryHP = [
+  {
+    id: 'shoes',
+    title: 'Shoes',
+    url: '/shoes',
+    image: shoesCabare,
+  },
+  {
+    id: 'bags',
+    title: 'Bags',
+    url: '/bags',
+    image: bagsRed,
+  },
+];
+
+export const saleCategoryHP = [
+  {
+    id: 'saleCatHp',
+    title: 'Sale',
+    urlTitle: 'More',
+    url: '/sale',
+    products: [
+      {
+        id: 'rebeccaBaguette',
+        name: 'REBECCA BAGUETTE hairy black bag',
+        url: '/rebecca-baguette',
+        urlTitle: 'more',
+        price: '7,800',
+        currency: 'USD',
+        image: rebeccaBaguette,
+      },
+      {
+        id: 'rebeccaBaguetteHairy',
+        name: 'REBECCA GRANDE hairy bordeaux bag',
+        url: '/rebecca-baguette-hairy',
+        urlTitle: 'more',
+        price: '12,500',
+        currency: 'USD',
+        image: rebeccaBaguetteHairy,
+      },
+      {
+        id: 'rebeccaBaguetteHairyBlack',
+        name: 'REBECCA GRANDE hairy black bag',
+        url: '/rebecca-baguette-hairy-black',
+        urlTitle: 'more',
+        price: '8,500',
+        currency: 'USD',
+        image: rebeccaBaguetteHairyBlack,
+      },
+      {
+        id: 'pranzoHairy',
+        name: 'PRANZO HAIRY red & white bag   ',
+        url: '/pranzo-hairy',
+        urlTitle: 'more',
+        price: '12,500',
+        currency: 'USD',
+        image: pranzoHairy,
+      },
+      {
+        id: 'rBagShopper',
+        name: 'R-BAG bordeaux shopper bag /silver/',
+        url: '/r-bag-shopper',
+        urlTitle: 'more',
+        price: '12,500',
+        currency: 'USD',
+        image: rBagShopper,
       },
     ],
   },

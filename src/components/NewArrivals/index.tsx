@@ -15,7 +15,7 @@ type TCategoryProducts = {
   products: TProductsItems[];
 };
 
-const NewArrivals = ({ category }: TCategory) => {
+const CategorySlider = ({ category }: TCategory) => {
   if (category.length === 0) return null;
 
   const settings = {
@@ -76,4 +76,4 @@ const NewArrivals = ({ category }: TCategory) => {
   );
 };
 
-export default NewArrivals;
+export default CategorySlider;
