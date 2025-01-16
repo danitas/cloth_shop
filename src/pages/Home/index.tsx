@@ -8,9 +8,7 @@ const Home = () => {
     <Layout>
       <Banner pictures={hpBannerPics} />
 
-      <div className="my-2">
-        <QuadGallery pictures={hpQuadGallery} />
-      </div>
+      <QuadGallery pictures={hpQuadGallery} />
     </Layout>
   );
 };

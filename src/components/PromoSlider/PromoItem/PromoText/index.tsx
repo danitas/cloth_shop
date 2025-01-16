@@ -11,16 +11,16 @@ const PromoText = ({ text, linkTitle = '', link }: PromoTextProps) => {
   const hasPlaceholder = text.includes('{0}');
 
   if (hasPlaceholder && link) {
-    const parts = text.split('{0}');
+    const [textLeft, textRight] = text.split('{0}');
 
     return (
       <>
-        {parts[0] && (
+        {textLeft && (
           <Typography
             size="sm"
             className="text-baseLight inline-flex text-white"
           >
-            {parts[0]}
+            {textLeft}
           </Typography>
         )}
         <Typography
@@ -32,20 +32,20 @@ const PromoText = ({ text, linkTitle = '', link }: PromoTextProps) => {
           className={clsx(
             'text-baseLight text-white underline hover:text-white',
             {
-              'mx-1': parts[0] && parts[1],
-              'ml-1': parts[0] && !parts[1],
-              'mr-1': !parts[0],
+              'mx-1': textLeft && textRight,
+              'ml-1': textLeft && !textRight,
+              'mr-1': !textLeft,
             }
           )}
         >
           {linkTitle}
         </Typography>
-        {parts[1] && (
+        {textRight && (
           <Typography
             size="sm"
             className="text-baseLight inline-flex text-white"
           >
-            {parts[1]}
+            {textRight}
           </Typography>
         )}
       </>
