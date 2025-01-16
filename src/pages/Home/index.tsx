@@ -10,9 +10,7 @@ const Home = () => {
     <Layout>
       <Banner pictures={hpBannerPics} />
 
-      <div className="my-2">
         <QuadGallery pictures={hpQuadGallery} />
-      </div>
 
       <NewArrivals category={newArrivals} />
     </Layout>

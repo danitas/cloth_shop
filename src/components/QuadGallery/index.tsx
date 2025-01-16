@@ -11,7 +11,7 @@ type TPicture = {
 
 const QuadGallery = ({ pictures }: TPictures) => {
   return (
-    <div className="grid cursor-pointer gap-2 lg:grid-cols-2">
+    <div className="my-2 grid cursor-pointer gap-2 lg:grid-cols-2">
       {pictures.map((pic) => (
         <div key={pic.id} className="group flex overflow-hidden">
           <img
