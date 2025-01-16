@@ -1,40 +1,57 @@
 import clsx from 'clsx';
 import { TSharedCategory } from '@components/NavigationList/DesktopNavigation/NavigationCategory';
 import useScreenSize from '@hooks/useScreenSize.ts';
+import { useRef } from 'react';
+import { CSSTransition } from 'react-transition-group';
+
+type TSubcategoriesLinksProps = {
+  subCategories?: TSharedCategory[];
+  isOpen?: boolean;
+};
 
 const SubcategoriesLinks = ({
   subCategories,
-}: {
-  subCategories?: TSharedCategory[];
-}) => {
+  isOpen = false,
+}: TSubcategoriesLinksProps) => {
   const { isMdUp } = useScreenSize();
+  const ref = useRef<HTMLDivElement>(null);
+  const transitionClassNames = {
+    enter: 'opacity-85',
+    enterActive: '-translate-y-4 opacity-50',
+    enterDone: 'max-h-[350px] translate-y-0 opacity-100',
+    exit: 'opacity-20',
+    exitActive: 'translate-y-4 opacity-0',
+  };
 
   if (!subCategories?.length) return null;
 
   return (
-    <div
-      className={clsx('flex-wrap', {
-        'mb-4 flex': !isMdUp,
-        'flex-grow-1 h-full flex-col lg:flex lg:w-[310px] xl:w-[510px]': isMdUp,
-      })}
+    <CSSTransition
+      in={isOpen}
+      nodeRef={ref}
+      timeout={0}
+      classNames={transitionClassNames}
     >
-      {subCategories.map((child) => (
-        <a
-          href={child.url}
-          key={child.id}
-          className={clsx(
-            'block px-4 py-2 text-base text-black hover:text-black hover:underline',
-            {
-              'text-md flex px-0 font-baseLight': !isMdUp,
-              'w-full': !isMdUp && subCategories.length < 8,
-              'w-1/2': !isMdUp && subCategories.length > 8,
-            }
-          )}
-        >
-          {child.name}
-        </a>
-      ))}
-    </div>
+      <div
+        ref={ref}
+        className={clsx(
+          'md:flex-grow-1 flex max-h-0 flex-wrap overflow-hidden transition-all duration-700 ease-linear md:h-full md:flex-col lg:flex lg:max-h-full lg:w-[310px] xl:w-[510px]'
+        )}
+      >
+        {subCategories.map((child) => (
+          <a
+            href={child.url}
+            key={child.id}
+            className={clsx(
+              subCategories.length <= 8 ? 'w-full' : 'w-1/2',
+              'block flex px-0 px-4 py-3 font-baseLight text-base text-md text-black hover:text-black hover:underline'
+            )}
+          >
+            {child.name}
+          </a>
+        ))}
+      </div>
+    </CSSTransition>
   );
 };
 

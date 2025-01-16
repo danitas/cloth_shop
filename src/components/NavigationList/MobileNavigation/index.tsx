@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router';
 
 const MobileNavigation = () => {
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
+
   const navigate = useNavigate();
 
   const toggleChevron = (id: string, e: React.MouseEvent) => {
@@ -25,7 +26,7 @@ const MobileNavigation = () => {
   };
 
   return (
-    <div className="flex-col py-4 sm:flex lg:hidden">
+    <>
       {mobileNavigationItems.map((item) => (
         <React.Fragment key={item.id}>
           <div
@@ -53,13 +54,13 @@ const MobileNavigation = () => {
               </div>
             )}
           </div>
-
-          {openItems[item.id] && (
-            <SubcategoriesLinks subCategories={item.subCategories} />
-          )}
+          <SubcategoriesLinks
+            subCategories={item.subCategories}
+            isOpen={openItems[item.id]}
+          />
         </React.Fragment>
       ))}
-    </div>
+    </>
   );
 };
 

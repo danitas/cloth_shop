@@ -23,20 +23,22 @@ const DesktopMenu = () => {
         />
       </a>
 
-      <div className="flex lg:gap-2 xl:gap-6">
+      <div className="flex justify-between lg:w-1/4 lg:gap-3">
         <Typography
           weight="bold"
           uppercase
-          className="flex lg:mx-3 lg:px-2 lg:text-xs xl:mx-5 xl:px-9 xl:text-base"
+          className="flex lg:mx-3 lg:px-2 lg:text-xs xl:mx-1 xl:text-base"
         >
           Customer Care
         </Typography>
-        <div className="flex justify-center align-middle lg:gap-2 xl:gap-9">
+        <div className="flex justify-center align-middle lg:gap-2">
           <LangLocaleAuth />
         </div>
-        <Heart width="19" height="18" />
-        <Search width="19" height="18" />
-        <ShoppingBag width="19" height="18" />
+        <div className="flex lg:gap-4">
+          <Heart width="19" height="18" />
+          <Search width="19" height="18" />
+          <ShoppingBag width="19" height="18" />
+        </div>
       </div>
     </div>
   );
