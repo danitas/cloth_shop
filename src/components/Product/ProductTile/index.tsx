@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router';
 import clsx from 'clsx';
 import classes from './styles.module.scss';
 import Typography from '@shared/Typography';
+import Prices from '@components/Product/ProductTile/Prices';
+import Badge from '@components/Product/ProductTile/Badge';
 
 type TProductsSizes = {
   id: string;
@@ -14,18 +16,23 @@ export type TProductsItems = {
   id: string;
   name: string;
   url: string;
-  price: string;
-  currency: string;
+  prices: TProductsPrices;
   image: string;
   sizes?: TProductsSizes[];
+};
+
+export type TProductsPrices = {
+  base_price: string;
+  currency: string;
+  discounted_price?: string;
+  discount_percentage?: string;
 };
 
 const ProductTile = ({
   id,
   name,
   url,
-  price,
-  currency,
+  prices,
   image,
   sizes,
 }: TProductsItems) => {
@@ -46,6 +53,8 @@ const ProductTile = ({
       >
         <div className="group relative flex w-full">
           <img src={image} alt={name} className="flex w-full object-cover" />
+
+          <Badge {...prices} />
 
           <div className="sizes absolute bottom-6 left-0 flex hidden h-7 w-full items-center justify-center lg:group-hover:flex">
             {sizes &&
@@ -84,13 +93,7 @@ const ProductTile = ({
           >
             {name}
           </Typography>
-          <Typography
-            tag="p"
-            className="mt-3 flex leading-normal lg:mt-0"
-            size={{ desktop: 'sm', mobile: 'xs' }}
-          >
-            {price} {currency}
-          </Typography>
+          <Prices {...prices} />
         </div>
       </div>
     </>

@@ -22,6 +22,7 @@
       "@hooks/*": ["./src/hooks/*"],
       "@shared/*": ["./src/shared/*"],
       "@data/*": ["./src/data/*"],
+      "@utils/*": ["./src/utils/*"],
       "@src/*": ["./src/*"]
     },
 
