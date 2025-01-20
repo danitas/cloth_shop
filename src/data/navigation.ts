@@ -100,31 +100,31 @@ export const mobileNavigationItems = [
 ];
 
 export const desktopNavigationItems = [
-  { id: 'newIn', name: 'New In', url: '/new-arrivals' },
+  { id: 'newIn', name: 'New In', url: 'category/new-arrivals' },
   {
     id: 'shoes',
     name: 'Shoes',
-    url: '/shoes',
+    url: 'category/shoes',
     subCategories: [
-      { id: 'boots', name: 'Boots', url: '/boots' },
-      { id: 'cowbooties', name: 'Cowbooties', url: '/cowbooties' },
-      { id: 'kneeBoots', name: 'Knee Boots', url: '/knee-boots' },
-      { id: 'sandals', name: 'Sandals', url: '/sandals' },
-      { id: 'ankleBoots', name: 'Ankle Boots', url: '/ankle-boots' },
-      { id: 'sneakers', name: 'Sneakers', url: '/sneakers' },
-      { id: 'cowboyBoots', name: 'Cowboy Boots', url: '/cowboy-boots' },
+      { id: 'boots', name: 'Boots', url: 'category/boots' },
+      { id: 'cowbooties', name: 'Cowbooties', url: 'category/cowbooties' },
+      { id: 'kneeBoots', name: 'Knee Boots', url: 'category/knee-boots' },
+      { id: 'sandals', name: 'Sandals', url: 'category/sandals' },
+      { id: 'ankleBoots', name: 'Ankle Boots', url: 'category/ankle-boots' },
+      { id: 'sneakers', name: 'Sneakers', url: 'category/sneakers' },
+      { id: 'cowboyBoots', name: 'Cowboy Boots', url: 'category/cowboy-boots' },
       {
         id: 'loafersOxfords',
         name: 'Loafers/Oxfords',
-        url: '/loafers-oxfords',
+        url: 'category/loafers-oxfords',
       },
-      { id: 'mulesSabo', name: 'Mules/Sabo', url: '/mules-sabo' },
+      { id: 'mulesSabo', name: 'Mules/Sabo', url: 'category/mules-sabo' },
       {
         id: 'pumpsSlingbacks',
         name: 'Pumps/Slingbacks',
-        url: '/pumps-slingbacks',
+        url: 'category/pumps-slingbacks',
       },
-      { id: 'balletFlats', name: 'Ballet Flats', url: '/ballet-flats' },
+      { id: 'balletFlats', name: 'Ballet Flats', url: 'category/ballet-flats' },
     ],
   },
   {

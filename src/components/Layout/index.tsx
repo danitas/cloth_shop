@@ -10,7 +10,7 @@ type LayoutProps = React.PropsWithChildren;
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className={clsx('relative flex h-screen flex-col')}>
+    <div className={clsx('relative flex min-h-screen flex-col')}>
       <SidebarProvider>
         <div className="sticky top-0 z-50 h-full bg-white shadow-md lg:relative lg:shadow-none">
           <PromoSlider promotions={Promotions} />
