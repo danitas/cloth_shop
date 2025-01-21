@@ -49,7 +49,7 @@ const ProductTile = ({
       <div
         key={id}
         onClick={handleNavigation(url)}
-        className={clsx(classes.sliderItem)}
+        className={classes.sliderItem}
       >
         <div className="group relative flex w-full">
           <img src={image} alt={name} className="flex w-full object-cover" />
@@ -57,8 +57,7 @@ const ProductTile = ({
           <Badge {...prices} />
 
           <div className="sizes absolute bottom-6 left-0 flex hidden h-7 w-full items-center justify-center lg:group-hover:flex">
-            {sizes &&
-              sizes.length > 0 &&
+            {sizes?.length &&
               sizes.map((size) => (
                 <Typography
                   tag="p"

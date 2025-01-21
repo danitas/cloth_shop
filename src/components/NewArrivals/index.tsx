@@ -15,27 +15,27 @@ type TCategoryProducts = {
   products: TProductsItems[];
 };
 
+const settings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  autoplay: true,
+  slidesToShow: 3,
+  slidesToScroll: 2,
+  swipeToSlide: true,
+  responsive: [
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+};
+
 const CategorySlider = ({ category }: TCategory) => {
   if (category.length === 0) return null;
-
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    autoplay: true,
-    slidesToShow: 3,
-    slidesToScroll: 2,
-    swipeToSlide: true,
-    responsive: [
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
 
   return (
     <div className="mx-auto my-6 max-w-[calc(100%-14vw)]">
@@ -64,7 +64,7 @@ const CategorySlider = ({ category }: TCategory) => {
 
           <Slider
             {...settings}
-            className={'productSlider cursor-pointer overflow-hidden'}
+            className="productSlider cursor-pointer overflow-hidden"
           >
             {item.products.map((product) => (
               <ProductTile {...product} key={product.id} />
