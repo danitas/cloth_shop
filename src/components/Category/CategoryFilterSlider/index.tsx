@@ -38,17 +38,17 @@ type TCategoryProps = {
 
 const CategoryFilterSlider = ({ categories }: TCategoryProps) => {
   return (
-    <div className="customScrollbar flex w-full flex-nowrap overflow-x-auto overflow-y-scroll py-6 lg:w-auto">
+    <div className="max-w-auto flex w-full cursor-pointer flex-nowrap overflow-x-auto overflow-y-clip py-6 lg:w-auto">
       {categories.map((cat) =>
         cat.subcategories.map((subcategory) => (
           <div
             key={subcategory.id}
-            className="flex flex-shrink-0 flex-col px-2 first:pl-0 last:pr-0"
+            className="flex flex-shrink-0 flex-col pr-4 last:pr-0"
           >
             <img
               src={subcategory.image}
               alt={subcategory.name}
-              className="max-w-[128px]"
+              className="w-[128px] lg:w-[254px]"
             />
             <Typography tag="h3" className="mt-3" size="sm">
               {subcategory.name}

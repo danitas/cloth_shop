@@ -10,7 +10,7 @@ export default function Category() {
 
   return (
     <Layout>
-      <div className="mx-auto my-6 px-4 lg:my-9 lg:max-w-[calc(100%-14vw)] lg:px-0">
+      <div className="mx-auto my-6 px-4 lg:my-9 lg:max-w-[calc(100%-14vw)]">
         <div className="flex justify-between lg:justify-start">
           <Typography tag="h1" uppercase size={{ desktop: 'xl', mobile: 'lg' }}>
             {categoryId}
