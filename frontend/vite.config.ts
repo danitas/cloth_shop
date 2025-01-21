@@ -7,6 +7,9 @@ import checker from 'vite-plugin-checker';
 export default defineConfig({
   plugins: [react(), checker({ typescript: true })],
   server: {
+    watch: {
+      usePolling: true,
+    },
     host: '0.0.0.0', // Bind to all network interfaces
     port: 5173, // Optional: Ensure the port matches
     strictPort: true, // Fail if the port is unavailable
