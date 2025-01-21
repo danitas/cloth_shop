@@ -9,10 +9,13 @@ type LayoutProps = React.PropsWithChildren;
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="flex max-h-screen flex-col">
+    <div className="relative flex min-h-screen flex-col">
       <SidebarProvider>
-        <PromoSlider promotions={Promotions} />
-        <Header />
+        <div className="sticky top-0 z-50 h-full bg-white shadow-md lg:relative lg:shadow-none">
+          <PromoSlider promotions={Promotions} />
+          <Header />
+        </div>
+
         <main>{children}</main>
         <Footer />
       </SidebarProvider>

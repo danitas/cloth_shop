@@ -6,7 +6,7 @@ import Typography from '@shared/Typography';
 
 const DesktopMenu = () => {
   return (
-    <div className="relative hidden items-center justify-between lg:flex">
+    <div className="lg-mx-4 relative hidden items-center justify-between lg:flex">
       <div className="flex-grow-1 flex gap-4 pt-4 lg:pt-8">
         <NavigationList />
       </div>
@@ -23,7 +23,7 @@ const DesktopMenu = () => {
         />
       </a>
 
-      <div className="flex justify-between lg:w-1/4 lg:gap-3">
+      <div className="flex justify-between">
         <Typography
           weight="bold"
           uppercase
@@ -31,7 +31,7 @@ const DesktopMenu = () => {
         >
           Customer Care
         </Typography>
-        <div className="flex justify-center align-middle lg:gap-2">
+        <div className="flex justify-center align-middle lg:mx-9 lg:gap-2 xl:mx-20">
           <LangLocaleAuth />
         </div>
         <div className="flex lg:gap-4">
