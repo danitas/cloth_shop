@@ -10,7 +10,18 @@ type variant =
   | 'warning'
   | 'danger';
 type weight = 'bold' | 'normal' | 'thin';
-type size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type size =
+  | 'xxs'
+  | 'xs'
+  | 'sm'
+  | 'md'
+  | 'lg'
+  | 'xl'
+  | {
+      mobile: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+      desktop: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+    };
+
 type TRel = 'noopener' | 'noreferrer' | 'nofollow';
 
 export type TTypographyTags<T extends keyof JSX.IntrinsicElements> =
@@ -55,10 +66,15 @@ const Typography = <T extends keyof JSX.IntrinsicElements>({
 }: TTypographyProps<T>) => {
   const Tag = tag ?? 'p';
 
+  const isResponsiveSize = typeof size === 'object';
+
   const styles = {
     [classes[`variant-${variant}`]]: true,
     [classes[`weight-${weight}`]]: true,
-    [classes[`size-${size}`]]: true,
+    [classes[`size-${isResponsiveSize ? size.mobile : size}`]]:
+      !isResponsiveSize || size.mobile,
+    [classes[`desktop-size-${isResponsiveSize ? size.desktop : ''}`]]:
+      isResponsiveSize && size.desktop,
     [classes.uppercase]: uppercase,
   };
 
@@ -66,7 +82,6 @@ const Typography = <T extends keyof JSX.IntrinsicElements>({
     <Tag
       {...props}
       className={clsx(classes.typography, styles, className)}
-      // Ensure rel defaults to 'noopener' if target="_blank" and no rel is provided
       {...(Tag === 'a' && props.target === '_blank'
         ? { rel: props.rel ?? 'noopener' }
         : {})}

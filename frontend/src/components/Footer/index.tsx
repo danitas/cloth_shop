@@ -12,7 +12,7 @@ const Footer = () => {
   const { isLgUp } = useScreenSize();
   return (
     <footer className="border-t pt-4 lg:flex lg:flex-col lg:pt-9">
-      <div className="container mx-auto">
+      <div className="mx-auto my-4 w-[calc(100%-14vw)]">
         <div className="items-start lg:grid lg:grid-cols-3">
           <div className="lg:flex">
             <FooterSocials />
@@ -31,9 +31,11 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="container mx-auto mt-9 flex justify-between border-t py-4">
-        <FooterCoop />
-        <FooterPay />
+      <div className="mt-9 border-t py-4">
+        <div className="mx-auto my-4 flex max-w-[calc(100%-14vw)] justify-between">
+          <FooterCoop />
+          <FooterPay />
+        </div>
       </div>
     </footer>
   );

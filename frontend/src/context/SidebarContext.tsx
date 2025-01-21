@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 type SidebarProviderProps = React.PropsWithChildren;
 
@@ -21,6 +21,10 @@ export function useSidebarContext() {
 
 export function SidebarProvider({ children }: SidebarProviderProps) {
   const [isSmallOpen, setIsSmallOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflowY = isSmallOpen ? 'hidden' : 'auto';
+  }, [isSmallOpen]);
 
   function toggle() {
     setIsSmallOpen((s) => !s);

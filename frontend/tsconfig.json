@@ -10,6 +10,7 @@
       "@data/*": ["./src/data/*"],
       "@shared/*": ["./src/shared/*"],
       "@hooks/*": ["./src/hooks/*"],
+      "@utils/*": ["./src/utils/*"],
       "@src/*": ["./src/*"]
     }
   },
