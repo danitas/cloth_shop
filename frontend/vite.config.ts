@@ -6,6 +6,11 @@ import checker from 'vite-plugin-checker';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), checker({ typescript: true })],
+  server: {
+    host: '0.0.0.0', // Bind to all network interfaces
+    port: 5173, // Optional: Ensure the port matches
+    strictPort: true, // Fail if the port is unavailable
+  },
   resolve: {
     alias: {
       '@components': path.resolve(__dirname, './src/components'),
