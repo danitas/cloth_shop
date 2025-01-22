@@ -1,60 +1,52 @@
 import React from 'react';
-import { useNavigate } from 'react-router';
 import clsx from 'clsx';
 import classes from './styles.module.scss';
 import Typography from '@shared/Typography';
-import Prices from '@components/Product/ProductTile/Prices';
-import Badge from '@components/Product/ProductTile/Badge';
-
-type TProductsSizes = {
-  id: string;
-  name: string;
-  hasSize: boolean;
-};
+import Badge from '@components/Products/ProductTile/Badge';
+import Prices from '@components/Products/ProductTile/Prices';
 
 export type TProductsItems = {
   id: string;
   name: string;
-  url: string;
-  prices: TProductsPrices;
-  image: string;
-  sizes?: TProductsSizes[];
-};
-
-export type TProductsPrices = {
-  base_price: string;
+  price: number;
   currency: string;
-  discounted_price?: string;
-  discount_percentage?: string;
+  image: string;
+  category_id: string;
+  subcategory_id: string;
+  sizes?: string[];
+  colors: string[];
+  discount: string;
+  isNew: boolean;
+  isFavorite: boolean;
+  quantity: number;
+  discounted_price?: number;
+  hasSize: boolean;
 };
 
 const ProductTile = ({
   id,
   name,
-  url,
-  prices,
+  price,
+  currency,
   image,
+  category_id,
+  subcategory_id,
   sizes,
+  colors,
+  discount,
+  isNew,
+  isFavorite,
+  quantity,
+  discounted_price,
+  hasSize,
 }: TProductsItems) => {
-  const navigate = useNavigate();
-
-  const handleNavigation = (url: string) => () => {
-    navigate(url);
-  };
-
-  const availableSizes = sizes?.some((size) => size.hasSize); // Check if any size has `hasSize: true`
-
   return (
     <>
-      <div
-        key={id}
-        onClick={handleNavigation(url)}
-        className={classes.sliderItem}
-      >
+      <div className={classes.sliderItem}>
         <div className="group relative flex w-full">
           <img src={image} alt={name} className="flex w-full object-cover" />
 
-          <Badge {...prices} />
+          <Badge discount={discount} />
 
           <div className="sizes absolute bottom-6 left-0 flex hidden h-7 w-full items-center justify-center lg:group-hover:flex">
             {sizes?.length &&
@@ -62,17 +54,17 @@ const ProductTile = ({
                 <Typography
                   tag="p"
                   size="md"
-                  key={size.id}
+                  key={size}
                   className={clsx(
-                    { 'pointer-events-none text-gray-300': !size.hasSize },
+                    { 'pointer-events-none text-gray-300': !hasSize },
                     'mx-2 flex border px-2 py-1 hover:bg-black hover:text-white'
                   )}
                 >
-                  {size.name}
+                  {size}
                 </Typography>
               ))}
 
-            {!availableSizes && (
+            {!quantity && (
               <Typography
                 tag="p"
                 size="md"
@@ -92,7 +84,11 @@ const ProductTile = ({
           >
             {name}
           </Typography>
-          <Prices {...prices} />
+          <Prices
+            price={price}
+            currency={currency}
+            discounted_price={discounted_price}
+          />
         </div>
       </div>
     </>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from '@shared/Typography';
 import Slider from 'react-slick';
-import ProductTile, { TProductsItems } from '@components/Product/ProductTile';
+import ProductTile, { TProductsItems } from '@components/Products/ProductTile';
 
 type TCategory = {
   category: TCategoryProducts[];

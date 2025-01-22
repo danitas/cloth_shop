@@ -49,7 +49,7 @@ export const products = [
     isNew: false,
     isFavorite: true,
     quantity: 250,
-    discounted_price: 400,
+    discount_price: 400,
     hasSize: true,
   },
   {
@@ -66,7 +66,7 @@ export const products = [
     isNew: false,
     isFavorite: false,
     quantity: 100,
-    discounted_price: 400,
+    discount_price: 400,
     hasSize: false,
   },
   {
@@ -83,7 +83,7 @@ export const products = [
     isNew: false,
     isFavorite: false,
     quantity: 100,
-    discounted_price: 400,
+    discount_price: 400,
     hasSize: true,
   },
   {
@@ -100,7 +100,7 @@ export const products = [
     isNew: true,
     isFavorite: true,
     quantity: 300,
-    discounted_price: 400,
+    discount_price: 400,
     hasSize: true,
   },
   {
@@ -117,7 +117,7 @@ export const products = [
     isNew: false,
     isFavorite: true,
     quantity: 180,
-    discounted_price: 400,
+    discount_price: 400,
     hasSize: false,
   },
   {
@@ -134,7 +134,7 @@ export const products = [
     isNew: true,
     isFavorite: false,
     quantity: 400,
-    discounted_price: 400,
+    discount_price: 400,
     hasSize: true,
   },
   {
@@ -151,7 +151,7 @@ export const products = [
     isNew: false,
     isFavorite: true,
     quantity: 220,
-    discounted_price: 400,
+    discount_price: 400,
     hasSize: false,
   },
   {
@@ -168,7 +168,7 @@ export const products = [
     isNew: false,
     isFavorite: false,
     quantity: 170,
-    discounted_price: 400,
+    discount_price: 400,
     hasSize: true,
   },
   {
@@ -185,7 +185,7 @@ export const products = [
     isNew: true,
     isFavorite: true,
     quantity: 320,
-    discounted_price: 400,
+    discount_price: 400,
     hasSize: false,
   },
   {
@@ -202,7 +202,7 @@ export const products = [
     isNew: false,
     isFavorite: true,
     quantity: 150,
-    discounted_price: 400,
+    discount_price: 400,
     hasSize: true,
   },
   {
@@ -219,7 +219,7 @@ export const products = [
     isNew: true,
     isFavorite: false,
     quantity: 400,
-    discounted_price: 400,
+    discount_price: 400,
     hasSize: false,
   },
   {
@@ -236,7 +236,7 @@ export const products = [
     isNew: true,
     isFavorite: false,
     quantity: 400,
-    discounted_price: 400,
+    discount_price: 400,
     hasSize: true,
   },
 ];
