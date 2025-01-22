@@ -2,8 +2,7 @@ import { useParams } from 'react-router-dom';
 import Layout from '@components/Layout';
 import Typography from '@shared/Typography';
 import MobileGrid from '@components/Mobile/MobileGrid';
-import { shoesCategory } from '@data/shoes.ts';
-import CategoryFilterSlider from '@components/Category/CategoryFilterSlider';
+import CategoryFilterSlider from '@pages/Category/CategoryFilterSlider';
 
 export default function Category() {
   const { categoryId } = useParams();
@@ -19,7 +18,7 @@ export default function Category() {
           <MobileGrid />
         </div>
 
-        <CategoryFilterSlider categories={shoesCategory} />
+        <CategoryFilterSlider />
       </div>
     </Layout>
   );

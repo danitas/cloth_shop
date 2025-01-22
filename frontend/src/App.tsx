@@ -3,8 +3,8 @@ import Home from '@pages/Home';
 import './i18n';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Category from '@components/Category';
-import Product from '@components/Product';
+import Category from '@pages/Category';
+import Product from '@pages/Product';
 import useGetProducts from '@hooks/api/useGetProducts.ts';
 
 function App() {
