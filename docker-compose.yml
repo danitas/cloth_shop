@@ -35,10 +35,12 @@ services:
   mongo:
     image: mongo:latest
     container_name: mongo
+    environment:
+      MONGO_INITDB_DATABASE: cloth_shop
     ports:
       - "27017:27017"
     volumes:
-      - mongo_data:/data/db
+      - ./database:/docker-entrypoint-initdb.d
 
 #  nginx:
 #    image: nginx:latest

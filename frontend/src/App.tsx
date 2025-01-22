@@ -8,10 +8,11 @@ import Product from '@components/Product';
 import useGetProducts from '@hooks/api/useGetProducts.ts';
 
 function App() {
-  const data = useGetProducts();
+  const { data } = useGetProducts();
 
   console.log('data');
   console.log(data);
+
   return (
     <Router>
       <Routes>

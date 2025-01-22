@@ -22,7 +22,8 @@ const axiosRequest = async <Response extends object>({
   try {
     const result = await axios<Response>({
       method,
-      url: `http://localhost:${process.env.REACT_APP_API_BASE_URL}/${url}`,
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      url: `${import.meta.env.VITE_REACT_APP_API_BASE_URL}${url}`,
       data: params,
     });
 
