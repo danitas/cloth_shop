@@ -1,52 +1,52 @@
-from pydantic import BaseModel, Field, EmailStr
+from pydantic import BaseModel, Field, EmailStr, ConfigDict
+from pydantic.functional_validators import BeforeValidator
 from typing import Optional, List
+from typing_extensions import Annotated
 from bson import ObjectId
 
 # MongoDB ObjectId Helper
-class PyObjectId(ObjectId):
-    @classmethod
-    def __get_validators__(cls):
-        yield cls.validate
-
-    @classmethod
-    def validate(cls, v):
-        if not ObjectId.is_valid(v):
-            raise ValueError("Invalid ObjectId")
-        return ObjectId(v)
-
-    @classmethod
-    def __get_pydantic_json_schema__(cls, schema, handler):
-        schema.update(type="string")
-        return schema
+PyObjectId = Annotated[str, BeforeValidator(str)]
 
 # Category Model
 class Category(BaseModel):
-    id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
     name: str
     image: Optional[str] = None
 
-    class Config:
-        allow_population_by_field_name = True
-        arbitrary_types_allowed = True
-        json_encoders = {ObjectId: str}
+    model_config = ConfigDict(
+        populate_by_name=True,
+        arbitrary_types_allowed=True,
+        json_schema_extra={
+            "example": {
+                "name": "Shoes",
+                "image": "https://someimage.com"
+            }
+        }
+    )
 
 # Subcategory Model
 class Subcategory(BaseModel):
-    id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
     name: str
     category_id: PyObjectId
     image: Optional[str] = None
 
-    class Config:
-        allow_population_by_field_name = True
-        arbitrary_types_allowed = True
-        json_encoders = {ObjectId: str}
+    model_config = ConfigDict(
+        populate_by_name=True,
+        arbitrary_types_allowed=True,
+        json_encoders={ObjectId: str},
+        json_schema_extra={
+            "example": {
+                "name": "Hiking shoes",
+                "category_id": "00000000000000000001",
+                "image": "https://someimage.com"
+            }
+        }
+    )
 
 # Product Model
 class Product(BaseModel):
-    id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
     name: str
     description: str
+    image: Optional[str] = None
     price: float
     in_stock: bool
     category_id: PyObjectId
@@ -60,21 +60,42 @@ class Product(BaseModel):
     discounted_price: Optional[float] = None
     has_size: Optional[bool] = True
 
-    class Config:
-        allow_population_by_field_name = True
-        arbitrary_types_allowed = True
-        json_encoders = {ObjectId: str}
+    model_config = ConfigDict(
+        populate_by_name=True,
+        arbitrary_types_allowed=True,
+        json_encoders={ObjectId: str},
+        json_schema_extra={
+            "example": {
+                "name": "Asics",
+                "description": "Asics hiking shoes for running",
+                "price": 130,
+                "in_stock": True,
+                "category_id": "00000000000000000001",
+                "subcategory_id": "00000000000000000101",
+                "sizes": ["S", "M", "L"],
+                "colors": ["red", "blue", "white"],
+                "discount": '10',
+                "is_new": True,
+                "is_favorite": False,
+                "quantity": 22,
+                "discounted_price": 117,
+                "has_size": True,
+                "image": "https://someimage.com"
+            }
+        }
+    )
 
 
 # User Model
 class User(BaseModel):
-    id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
     user_name: str
     email: EmailStr
     password: str
     is_admin: Optional[bool] = False
 
-    class Config:
-        allow_population_by_field_name = True
-        arbitrary_types_allowed = True
-        json_encoders = {ObjectId: str}
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        arbitrary_types_allowed=True,
+        json_encoders={ObjectId: str}
+    )
