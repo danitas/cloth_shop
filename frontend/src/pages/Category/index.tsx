@@ -1,11 +1,16 @@
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import Layout from '@components/Layout';
 import Typography from '@shared/Typography';
 import MobileGrid from '@components/Mobile/MobileGrid';
-import CategoryFilterSlider from '@pages/Category/CategoryFilterSlider';
+import CategoryFilterSlider from '../../components/Category/CategoryFilterSlider';
+import useScreenSize from '@hooks/useScreenSize.ts';
+import DesktopCategoryGrid from '@components/Category/DesktopCategoryGrid';
+import MobileCategoryGrid from '@components/Category/MobileCategoryGrid';
 
 export default function Category() {
   const { categoryId } = useParams();
+  const { isLgUp } = useScreenSize();
 
   return (
     <Layout>
@@ -20,6 +25,7 @@ export default function Category() {
 
         <CategoryFilterSlider />
       </div>
+      {isLgUp ? <DesktopCategoryGrid /> : <MobileCategoryGrid />}
     </Layout>
   );
 }

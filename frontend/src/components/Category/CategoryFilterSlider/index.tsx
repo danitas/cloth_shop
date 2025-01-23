@@ -1,7 +1,6 @@
 import React from 'react';
 import Typography from '@shared/Typography';
-import Products from '@components/Products';
-import { categories, subcategories } from '@data/shoes.ts';
+import { subcategories } from '@data/shoes.ts';
 
 export type TProducts = {
   id: string;
@@ -47,7 +46,6 @@ const CategoryFilterSlider = () => {
           </div>
         ))}
       </div>
-      <Products />
     </>
   );
 };

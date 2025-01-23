@@ -45,9 +45,9 @@ const SliderHP = ({ url, title, images }: TSlide) => {
   return (
     <div
       onClick={handleUrl(url)}
-      className="relative my-9 cursor-pointer lg:my-[100px]"
+      className="relative my-9 cursor-pointer overflow-hidden lg:my-[100px] lg:-ms-2"
     >
-      <Slider {...settings} className="overflow-hidden">
+      <Slider {...settings} className="lg:-me-2">
         {images.map((img) => (
           <ProductTile {...img} title={title} key={img.id} noCTA={true} />
         ))}

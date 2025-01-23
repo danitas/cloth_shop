@@ -22,6 +22,7 @@ export type TProductsItems = {
   discounted_price?: number;
   hasSize: boolean;
   noCTA?: boolean;
+  className?: string;
 };
 
 const ProductTile = ({
@@ -41,10 +42,11 @@ const ProductTile = ({
   discounted_price,
   hasSize,
   noCTA,
+  className,
 }: TProductsItems) => {
   return (
     <>
-      <div className={classes.sliderItem}>
+      <div className={clsx(classes.sliderItem, className)}>
         <div className="group relative flex w-full">
           <img src={image} alt={name} className="flex w-full object-cover" />
 

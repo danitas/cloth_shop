@@ -8,8 +8,8 @@ type TPictures = {
 
 type TPicture = {
   id: string;
-  title: string;
-  url: string;
+  title?: string;
+  url?: string;
   image: string;
 };
 
