@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field, EmailStr, ConfigDict
 from pydantic.functional_validators import BeforeValidator
 from typing import Optional, List
-from typing_extensions import Annotated
+from typing_extensions import Annotated, Literal
 from bson import ObjectId
 
 # MongoDB ObjectId Helper
@@ -46,6 +46,7 @@ class Subcategory(BaseModel):
 class Product(BaseModel):
     name: str
     description: str
+    currency: Optional[Literal["EUR", "USD"]] = 'EUR'
     image: Optional[str] = None
     price: float
     in_stock: bool
