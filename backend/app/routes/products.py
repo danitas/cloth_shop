@@ -1,15 +1,27 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Query
 from app.models import Product
 from app.db import db
-from app.utils import serialize_id, validate_category_exists, validate_subcategory_exists
+from app.utils import serialize_id, validate_category_exists, validate_subcategory_exists, calculate_skip_limit
 from bson import ObjectId
 
 router = APIRouter()
 
 @router.get("/")
-async def get_products():
-    products = await db.products.find().to_list(100)
-    return [serialize_id(product) for product in products]
+async def get_products(page: int = Query(1, ge=1), page_size: int = Query(10, ge=1, le=100)):
+    """
+     Get paginated list of products.
+     - `page`: Page number (default: 1).
+     - `page_size`: Number of items per page (default: 10, max: 100).
+     """
+    skip, limit = calculate_skip_limit(page, page_size)
+    products = await db.products.find().skip(skip).limit(limit).to_list(page_size)
+    total_count = await db.products.count_documents({})
+    return {
+        "total_count": total_count,
+        "page": page,
+        "page_size": page_size,
+        "products": [serialize_id(product) for product in products],
+    }
 
 @router.get("/{product_id}")
 async def get_product(product_id: str):

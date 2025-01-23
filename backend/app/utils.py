@@ -30,3 +30,12 @@ async def validate_subcategory_exists(subcategory_id: str):
     subcategory = await db.subcategories.find_one({"_id": ObjectId(subcategory_id)})
     if not subcategory:
         raise HTTPException(status_code=404, detail="Subcategory does not exist")
+
+# Helper function for pagination calculations
+def calculate_skip_limit(page: int, page_size: int):
+    if page < 1:
+        raise HTTPException(status_code=400, detail="Page number must be greater than or equal to 1")
+    if page_size < 1 or page_size > 100:
+        raise HTTPException(status_code=400, detail="Page size must be between 1 and 100")
+    skip = (page - 1) * page_size
+    return skip, page_size
