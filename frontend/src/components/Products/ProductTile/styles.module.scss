@@ -3,6 +3,10 @@
 
   &:not(.slick-initialized) {
     @apply grid grid-cols-2 lg:grid-cols-3;
+
+    .sliderItem {
+      @apply [&:nth-child(n+3)]:hidden lg:[&:nth-child(n+3)]:flex lg:[&:nth-child(n+4)]:hidden
+    }
   }
 }
 
@@ -12,8 +16,5 @@
   flex-col
   items-center
   justify-between
-  [&:nth-child(n+3)]:hidden
-  lg:[&:nth-child(n+3)]:flex
-  lg:[&:nth-child(n+4)]:hidden
   px-2
 }

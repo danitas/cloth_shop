@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
 import Slider from 'react-slick';
-import ProductTile from '@components/Sliders/SliderHP/ProductTile';
 import Typography from '@shared/Typography';
+import ProductTile from '@components/Products/ProductTile';
 
 export type TImages = {
   id: string;

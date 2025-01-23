@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 @font-face {
   font-family: 'Bitum';
   src: url('@assets/fonts/Bitum.woff') format('woff');
@@ -105,4 +111,23 @@ button:focus-visible {
   button {
     background-color: theme('colors.button.DEFAULT');
   }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 7px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: theme('borderColor.DEFAULT');
+  border: 6px solid theme('borderColor.DEFAULT');
+  border-radius: 6px;
+  height: 6px;
+  box-shadow: none;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: none;
+  background: transparent url("@assets/images/icons/line.svg") repeat-x center / auto;
 }
