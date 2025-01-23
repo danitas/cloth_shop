@@ -21,6 +21,7 @@ export type TProductsItems = {
   quantity: number;
   discounted_price?: number;
   hasSize: boolean;
+  noCTA?: boolean;
 };
 
 const ProductTile = ({
@@ -39,6 +40,7 @@ const ProductTile = ({
   quantity,
   discounted_price,
   hasSize,
+  noCTA,
 }: TProductsItems) => {
   return (
     <>
@@ -46,34 +48,36 @@ const ProductTile = ({
         <div className="group relative flex w-full">
           <img src={image} alt={name} className="flex w-full object-cover" />
 
-          <Badge discount={discount} />
+          {discount && <Badge discount={discount} />}
 
-          <div className="sizes absolute bottom-6 left-0 flex hidden h-7 w-full items-center justify-center lg:group-hover:flex">
-            {sizes?.length &&
-              sizes.map((size) => (
+          {!noCTA && (
+            <div className="sizes absolute bottom-6 left-0 flex hidden h-7 w-full items-center justify-center lg:group-hover:flex">
+              {sizes?.length &&
+                sizes.map((size) => (
+                  <Typography
+                    tag="p"
+                    size="md"
+                    key={size}
+                    className={clsx(
+                      { 'pointer-events-none text-gray-300': !hasSize },
+                      'mx-2 flex border px-2 py-1 hover:bg-black hover:text-white'
+                    )}
+                  >
+                    {size}
+                  </Typography>
+                ))}
+
+              {!quantity && (
                 <Typography
                   tag="p"
                   size="md"
-                  key={size}
-                  className={clsx(
-                    { 'pointer-events-none text-gray-300': !hasSize },
-                    'mx-2 flex border px-2 py-1 hover:bg-black hover:text-white'
-                  )}
+                  className="mx-6 flex w-full justify-center border px-2 py-1 hover:bg-black hover:text-white"
                 >
-                  {size}
+                  more
                 </Typography>
-              ))}
-
-            {!quantity && (
-              <Typography
-                tag="p"
-                size="md"
-                className="mx-6 flex w-full justify-center border px-2 py-1 hover:bg-black hover:text-white"
-              >
-                more
-              </Typography>
-            )}
-          </div>
+              )}
+            </div>
+          )}
         </div>
 
         <div className="my-2 flex w-full flex-col justify-between lg:flex-row lg:items-center">

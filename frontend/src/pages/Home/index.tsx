@@ -1,6 +1,6 @@
 import Layout from '@components/Layout';
 import Banner from '@components/Banner';
-import { hpBannerPics, hpQuadGallery } from '@data/hp_pictures.ts';
+import { hpBannerPics, hpMediaGrid4 } from '@data/hp_pictures.ts';
 import {
   fashionMediaHP,
   newArrivals,
@@ -8,22 +8,23 @@ import {
   quadroCategoryHP,
   saleCategoryHP,
 } from '@data/new_arrivals.ts';
-import QuadroGallery from '../../components/CategorySlider';
-import QuadGallery from '@components/QuadGallery';
+
 import CategorySlider from '@components/NewArrivals';
 import SliderHP from '@components/Sliders/SliderHP';
 import MediaHP from '@components/MediaHP';
+import MediaGrid4 from '../../components/MediaGrid/MediaGrid4';
+import DuoGallery from '../../components/MediaGrid/MediaGrid2';
 
 const Home = () => {
   return (
     <Layout>
       <Banner pictures={hpBannerPics} />
 
-      <QuadGallery pictures={hpQuadGallery} />
+      <MediaGrid4 pictures={hpMediaGrid4} />
 
       <CategorySlider category={newArrivals} />
 
-      <QuadroGallery pictures={quadroCategoryHP} />
+      <DuoGallery pictures={quadroCategoryHP} />
 
       <CategorySlider category={saleCategoryHP} />
 

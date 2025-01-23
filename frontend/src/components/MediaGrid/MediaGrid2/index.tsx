@@ -13,7 +13,7 @@ type TPicture = {
   image: string;
 };
 
-const QuadroGallery = ({ pictures }: TPictures) => {
+const MediaGrid2 = ({ pictures }: TPictures) => {
   const navigate = useNavigate();
   const redirectHandler = (url: string) => () => {
     navigate(url);
@@ -31,18 +31,20 @@ const QuadroGallery = ({ pictures }: TPictures) => {
             src={pic.image}
             alt="picture"
           />
-          <Typography
-            tag="h2"
-            size="lg"
-            uppercase
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white"
-          >
-            {pic.title}
-          </Typography>
+          {pic.title && (
+            <Typography
+              tag="h2"
+              size="lg"
+              uppercase
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white"
+            >
+              {pic.title}
+            </Typography>
+          )}
         </div>
       ))}
     </div>
   );
 };
 
-export default QuadroGallery;
+export default MediaGrid2;

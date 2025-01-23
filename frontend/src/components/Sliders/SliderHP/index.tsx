@@ -49,7 +49,7 @@ const SliderHP = ({ url, title, images }: TSlide) => {
     >
       <Slider {...settings} className="overflow-hidden">
         {images.map((img) => (
-          <ProductTile {...img} title={title} key={img.id} />
+          <ProductTile {...img} title={title} key={img.id} noCTA={true} />
         ))}
       </Slider>
       <Typography
