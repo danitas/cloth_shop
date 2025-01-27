@@ -23,6 +23,40 @@ async def get_products(page: int = Query(1, ge=1), page_size: int = Query(10, ge
         "products": [serialize_id(product) for product in products],
     }
 
+@router.get("/category/{category_id}")
+async def get_products(category_id: str, page: int = Query(1, ge=1), page_size: int = Query(10, ge=1, le=100)):
+    """
+     Get paginated list of products.
+     - `page`: Page number (default: 1).
+     - `page_size`: Number of items per page (default: 10, max: 100).
+     """
+    skip, limit = calculate_skip_limit(page, page_size)
+    products = await db.products.find({ "category_id": ObjectId(category_id) }).skip(skip).limit(limit).to_list(page_size)
+    total_count = await db.products.count_documents({})
+    return {
+        "total_count": total_count,
+        "page": page,
+        "page_size": page_size,
+        "products": [serialize_id(product) for product in products],
+    }
+
+@router.get("/subcategory/{subcategory_id}")
+async def get_products(subcategory_id: str, page: int = Query(1, ge=1), page_size: int = Query(10, ge=1, le=100)):
+    """
+     Get paginated list of products.
+     - `page`: Page number (default: 1).
+     - `page_size`: Number of items per page (default: 10, max: 100).
+     """
+    skip, limit = calculate_skip_limit(page, page_size)
+    products = await db.products.find({ "subcategory_id": ObjectId(subcategory_id) }).skip(skip).limit(limit).to_list(page_size)
+    total_count = await db.products.count_documents({})
+    return {
+        "total_count": total_count,
+        "page": page,
+        "page_size": page_size,
+        "products": [serialize_id(product) for product in products],
+    }
+
 @router.get("/{product_id}")
 async def get_product(product_id: str):
     product = await db.products.find_one({"_id": ObjectId(product_id)})

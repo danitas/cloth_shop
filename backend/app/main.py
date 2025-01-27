@@ -7,8 +7,8 @@ app = FastAPI()
 
 app.include_router(products.router, prefix='/products', tags=["Products"])
 app.include_router(users.router, prefix='/users', tags=["Users"])
-app.include_router(categories.router, tags=["Categories"])
-app.include_router(subcategories.router, tags=["Subcategories"])
+app.include_router(categories.router, prefix='/categories', tags=["Categories"])
+app.include_router(subcategories.router,  prefix='/subcategories',tags=["Subcategories"])
 
 app.add_middleware(
     CORSMiddleware,
