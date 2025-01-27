@@ -1,16 +1,31 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Query
 from app.models import Subcategory
 from app.db import db
 from app.utils import serialize_id, validate_category_exists
 from bson import ObjectId
+from typing_extensions import Optional
 
 router = APIRouter()
 
 ### SUBCATEGORY ENDPOINTS ###
 
 @router.get("/")
-async def get_subcategories():
-    subcategories = await db.subcategories.find().to_list(100)
+async def get_subcategories(filter_field: Optional[str] = Query(None), filter_value: Optional[str] = Query(None)):
+    """
+     Get list of subcategories.
+     - `filter_field`: Field to filter on, e.g., `category_id`.
+     - `filter_value`: Value to filter by.
+     """
+
+    query = {}
+
+    if filter_field and filter_value:
+        try:
+            query[filter_field] = ObjectId(filter_value)
+        except:
+            raise HTTPException(status_code=400, detail="Invalid ID format")
+
+    subcategories = await db.subcategories.find(query).to_list(100)
     return [serialize_id(subcategory) for subcategory in subcategories]
 
 @router.get("/{subcategory_id}")
@@ -19,16 +34,6 @@ async def get_subcategory(subcategory_id: str):
     if not subcategory:
         raise HTTPException(status_code=404, detail="Subcategory not found")
     return serialize_id(subcategory)
-
-@router.get("/category/{category_id}")
-async def get_subcategories_by_category_id(category_id: str):
-    """
-    Get all subcategories for a given category ID.
-    """
-    subcategories = await db.subcategories.find({"category_id": ObjectId(category_id)}).to_list(100)
-    if not subcategories:
-        raise HTTPException(status_code=404, detail="No subcategories found for this category")
-    return [serialize_id(subcategory) for subcategory in subcategories]
 
 @router.post("/")
 async def create_subcategory(subcategory: Subcategory):
