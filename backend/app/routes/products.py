@@ -1,4 +1,3 @@
-from dns.e164 import query
 from fastapi import APIRouter, HTTPException, Query
 from app.models import Product
 from app.db import db
