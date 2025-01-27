@@ -26,7 +26,7 @@ export type TProductsItems = {
 };
 
 const ProductTile = ({
-  id,
+  _id,
   name,
   price,
   currency,
@@ -48,7 +48,11 @@ const ProductTile = ({
     <>
       <div className={clsx(classes.sliderItem, className)}>
         <div className="group relative flex w-full">
-          <img src={image} alt={name} className="flex w-full object-cover" />
+          <img
+            src={`/src/assets/images/category/${image}`}
+            alt={name}
+            className="flex w-full object-cover"
+          />
 
           {discount && <Badge discount={discount} />}
 
