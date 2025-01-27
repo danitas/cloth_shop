@@ -1,17 +1,3 @@
-// Switch to the appropriate database
-import cowbooties from "../frontend/src/assets/images/category/cowbboots.jpg";
-import partyShoes from "../frontend/src/assets/images/category/chownyky.jpg";
-import kneeBoots from "../frontend/src/assets/images/category/boots.jpg";
-import sandals from "../frontend/src/assets/images/category/bosonijki.jpg";
-import ankleBoots from "../frontend/src/assets/images/category/boots-12-botil-24.jpg";
-import boots from "../frontend/src/assets/images/category/boots12-24.jpg";
-import loafers from "../frontend/src/assets/images/category/loafers-24-09.jpg";
-import balletFlat from "../frontend/src/assets/images/category/bosbaletky-24-09.jpg";
-import cowboyBoots from "../frontend/src/assets/images/category/kowboy09.jpg";
-import mules from "../frontend/src/assets/images/category/myli-24-09.jpg";
-import sneakers from "../frontend/src/assets/images/category/keds-1-24.jpg";
-import slides from "../frontend/src/assets/images/category/slopanci-6-24.jpg";
-
 db = db.getSiblingDB('cloth_shop');
 
 // Categories
