@@ -3,10 +3,14 @@ import { getSubcategories } from '@src/api/subcategories.ts';
 
 export const GET_SUBCATEGORIES = 'GET_SUBCATEGORIES';
 
-const useGetSubcategories = () => {
+type TGetSubcategories = {
+  category_id?: string;
+};
+
+const useGetSubcategories = (props: TGetSubcategories = {}) => {
   return useQuery({
     queryKey: [GET_SUBCATEGORIES],
-    queryFn: getSubcategories,
+    queryFn: () => getSubcategories(props.category_id),
   });
 };
 

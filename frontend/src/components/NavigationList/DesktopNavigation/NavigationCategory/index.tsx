@@ -3,26 +3,23 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import Subcategories from '../../Subcategories';
 import classes from './styles.module.scss';
+import useGetSubcategories from '@hooks/api/useGetSubcategories.ts';
 
 export type TSharedCategory = {
-  id: string;
-  url: string;
+  _id: string;
   name: string;
-  isSale?: boolean;
 };
 
 type TCategoryProps = TSharedCategory & {
-  subCategories?: TSharedCategory[];
   isLastItem: boolean;
 };
 
-const NavigationCategory = ({
-  url,
-  name,
-  subCategories,
-  isLastItem,
-}: TCategoryProps) => {
+const NavigationCategory = ({ _id, name, isLastItem }: TCategoryProps) => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+
+  const { data } = useGetSubcategories({ category_id: _id });
+
+  console.log('data', data);
 
   const handleMouseEnter = () => {
     setIsDropdownVisible(true);
@@ -31,6 +28,8 @@ const NavigationCategory = ({
   const handleMouseLeave = () => {
     setIsDropdownVisible(false);
   };
+
+  const url = `category/${_id}`;
 
   return (
     <div
@@ -41,7 +40,7 @@ const NavigationCategory = ({
     >
       <a href={url} className={clsx(classes.dropDownTitle)}>
         {name}
-        {subCategories?.length && (
+        {data?.length && (
           <ChevronDown
             size="13"
             className={clsx(
@@ -52,7 +51,7 @@ const NavigationCategory = ({
         )}
       </a>
       <Subcategories
-        subCategories={subCategories}
+        subCategories={data}
         isLastItem={isLastItem}
         isVisible={isDropdownVisible}
       />

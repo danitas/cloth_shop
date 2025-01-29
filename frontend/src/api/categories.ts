@@ -1,8 +1,8 @@
 import axiosRequest from '@utils/requestHelper.ts';
 
-export const getProducts = async () => {
+export const getCategories = async () => {
   return await axiosRequest({
     method: 'GET',
-    url: '/products',
+    url: '/categories',
   });
 };
