@@ -11,12 +11,10 @@ import useGetCategory from '@hooks/api/useGetCategory.ts';
 
 export default function Category() {
   const { categoryId } = useParams();
-  const { data } = useGetCategory();
+  const { data } = useGetCategory({ category_slug: categoryId });
   const { isLgUp } = useScreenSize();
 
   if (!data) return null;
-
-  console.log('data', data);
 
   return (
     <Layout>
@@ -29,7 +27,7 @@ export default function Category() {
           <MobileGrid />
         </div>
 
-        <CategoryFilterSlider />
+        <CategoryFilterSlider subcategories={data.subcategories} />
       </div>
       {isLgUp ? <DesktopCategoryGrid /> : <MobileCategoryGrid />}
     </Layout>
