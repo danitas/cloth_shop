@@ -12,13 +12,23 @@ router = APIRouter()
 @router.get("/")
 async def get_categories():
     categories = await db.categories.find().to_list(100)
+
+    for category in categories:
+        subcategories = await db.subcategories.find({"category_id": category["_id"]}).to_list(100)
+        category['subcategory'] = [serialize_id(sub) for sub in subcategories]
+
     return [serialize_id(category) for category in categories]
 
 @router.get("/{category_id}")
 async def get_category(category_id: str):
     category = await db.categories.find_one({"_id": ObjectId(category_id)})
+    subcategories = await db.subcategories.find({"category_id": ObjectId(category_id)}).to_list(100)
+
     if not category:
         raise HTTPException(status_code=404, detail="Category not found")
+
+    category['subcategories'] = [serialize_id(sub) for sub in subcategories]
+
     return serialize_id(category)
 
 @router.post("/")
