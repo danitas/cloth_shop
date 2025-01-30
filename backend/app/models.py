@@ -10,6 +10,7 @@ PyObjectId = Annotated[str, BeforeValidator(str)]
 # Category Model
 class Category(BaseModel):
     name: str
+    slug: Field(..., pattern="^[a-z0-9]+(?:-[a-z0-9]+)*$")
     image: Optional[str] = None
 
     model_config = ConfigDict(
@@ -26,7 +27,9 @@ class Category(BaseModel):
 # Subcategory Model
 class Subcategory(BaseModel):
     name: str
+    slug: Field(..., pattern="^[a-z0-9]+(?:-[a-z0-9]+)*$")
     category_id: PyObjectId
+    category_slug: Field(..., pattern="^[a-z0-9]+(?:-[a-z0-9]+)*$")
     image: Optional[str] = None
 
     model_config = ConfigDict(

@@ -15,14 +15,14 @@ async def get_categories():
 
     for category in categories:
         subcategories = await db.subcategories.find({"category_id": category["_id"]}).to_list(100)
-        category['subcategory'] = [serialize_id(sub) for sub in subcategories]
+        category['subcategories'] = [serialize_id(sub) for sub in subcategories]
 
     return [serialize_id(category) for category in categories]
 
-@router.get("/{category_id}")
-async def get_category(category_id: str):
-    category = await db.categories.find_one({"_id": ObjectId(category_id)})
-    subcategories = await db.subcategories.find({"category_id": ObjectId(category_id)}).to_list(100)
+@router.get("/{category_slug}")
+async def get_category(category_slug: str):
+    category = await db.categories.find_one({"slug": category_slug})
+    subcategories = await db.subcategories.find({"category_id": category['_id']}).to_list(100)
 
     if not category:
         raise HTTPException(status_code=404, detail="Category not found")
@@ -33,22 +33,26 @@ async def get_category(category_id: str):
 
 @router.post("/")
 async def create_category(category: Category):
+    existing_category = await db.categories.find_one({"slug": category.slug})
+    if existing_category:
+        raise HTTPException(status_code=400, detail="Slug already exists")
+
     result = await db.categories.insert_one(category.dict(by_alias=True))
     return {"id": str(result.inserted_id)}
 
-@router.put("/{category_id}")
-async def update_category(category_id: str, category: Category):
+@router.put("/{category_slug}")
+async def update_category(category_slug: str, category: Category):
     result = await db.categories.update_one(
-        {"_id": ObjectId(category_id)},
+        {"slug": category_slug},
         {"$set": category.dict(by_alias=True)}
     )
     if result.modified_count == 0:
         raise HTTPException(status_code=404, detail="Category not found")
     return {"message": "Category updated successfully"}
 
-@router.delete("/{category_id}")
-async def delete_category(category_id: str):
-    result = await db.categories.delete_one({"_id": ObjectId(category_id)})
+@router.delete("/{category_slug}")
+async def delete_category(category_slug: str):
+    result = await db.categories.delete_one({"slug": category_slug})
     if result.deleted_count == 0:
         raise HTTPException(status_code=404, detail="Category not found")
     return {"message": "Category deleted successfully"}
