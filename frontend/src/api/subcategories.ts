@@ -4,7 +4,9 @@ export type TSubcategories = {
   _id: string;
   name: string;
   category_id: string;
+  category_slug: string;
   image: string;
+  slug: string;
 };
 
 export const getSubcategories = async (

@@ -27,7 +27,7 @@ const NavigationCategory = ({ _id, name, isLastItem }: TCategoryProps) => {
     setIsDropdownVisible(false);
   };
 
-  const url = _id;
+  const url = slug;
 
   return (
     <div

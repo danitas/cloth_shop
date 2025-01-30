@@ -11,12 +11,15 @@ export const getCategories = async () => {
 export type TCategory = {
   _id: string;
   name: string;
-  subcategory: TSubcategories[];
+  subcategories: TSubcategories[];
+  slug: string;
 };
 
-export const getCategory = async (category_id?: string): Promise<TCategory> => {
+export const getCategory = async (
+  category_slug?: string
+): Promise<TCategory> => {
   return await axiosRequest({
     method: 'GET',
-    url: `/categories/${category_id ? category_id : ''}`,
+    url: `/categories/${category_slug ? category_slug : ''}`,
   });
 };

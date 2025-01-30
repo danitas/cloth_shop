@@ -11,7 +11,7 @@ import useGetCategory from '@hooks/api/useGetCategory.ts';
 
 export default function Category() {
   const { categoryId } = useParams();
-  const { data } = useGetCategory({ category_id: categoryId });
+  const { data } = useGetCategory({ category_slug: categoryId });
   const { isLgUp } = useScreenSize();
 
   if (!data) return null;
