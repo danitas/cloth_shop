@@ -20,10 +20,13 @@ async def get_subcategories(filter_field: Optional[str] = Query(None), filter_va
     query = {}
 
     if filter_field and filter_value:
-        try:
-            query[filter_field] = ObjectId(filter_value)
-        except:
-            raise HTTPException(status_code=400, detail="Invalid ID format")
+        if filter_field == 'category_id':
+            try:
+                query[filter_field] = ObjectId(filter_value)
+            except:
+                raise HTTPException(status_code=400, detail="Invalid ID format")
+        else:
+            query[filter_field] = filter_value
 
     subcategories = await db.subcategories.find(query).to_list(100)
     return [serialize_id(subcategory) for subcategory in subcategories]

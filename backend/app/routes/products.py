@@ -15,10 +15,13 @@ async def get_paginated_products(page: int, page_size: int, filter_field: Option
     query = {}
 
     if filter_field and filter_value:
-        try:
-            query[filter_field] = ObjectId(filter_value)
-        except Exception:
-            raise HTTPException(status_code=400, detail="Invalid ID format")
+        if filter_field == 'category_id' or filter_field == 'subcategory_id':
+            try:
+                query[filter_field] = ObjectId(filter_value)
+            except Exception:
+                raise HTTPException(status_code=400, detail="Invalid ID format")
+        else:
+            query[filter_field] = filter_value
 
 
     skip, limit = calculate_skip_limit(page, page_size)
