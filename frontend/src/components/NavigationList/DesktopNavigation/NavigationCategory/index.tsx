@@ -19,8 +19,6 @@ const NavigationCategory = ({ _id, name, isLastItem }: TCategoryProps) => {
 
   const { data } = useGetSubcategories({ category_id: _id });
 
-  console.log('data', data);
-
   const handleMouseEnter = () => {
     setIsDropdownVisible(true);
   };
@@ -29,7 +27,7 @@ const NavigationCategory = ({ _id, name, isLastItem }: TCategoryProps) => {
     setIsDropdownVisible(false);
   };
 
-  const url = `category/${_id}`;
+  const url = _id;
 
   return (
     <div

@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { TSharedCategory } from '@components/NavigationList/DesktopNavigation/NavigationCategory';
-import useScreenSize from '@hooks/useScreenSize.ts';
 import { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
@@ -13,7 +12,6 @@ const SubcategoriesLinks = ({
   subCategories,
   isOpen = false,
 }: TSubcategoriesLinksProps) => {
-  const { isMdUp } = useScreenSize();
   const ref = useRef<HTMLDivElement>(null);
   const transitionClassNames = {
     enter: 'opacity-85',
@@ -41,7 +39,7 @@ const SubcategoriesLinks = ({
         {subCategories.map((child) => (
           <a
             href={child.url}
-            key={child.id}
+            key={child._id}
             className={clsx(
               subCategories.length <= 8 ? 'w-full' : 'w-1/2',
               'block flex px-0 px-4 py-3 font-baseLight text-base text-md text-black hover:text-black hover:underline'
