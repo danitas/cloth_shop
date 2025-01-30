@@ -54,7 +54,9 @@ class Product(BaseModel):
     price: float
     in_stock: bool
     category_id: PyObjectId
+    category_slug: Field(..., pattern="^[a-z0-9]+(?:-[a-z0-9]+)*$")
     subcategory_id: PyObjectId
+    subcategory_slug: Field(..., pattern="^[a-z0-9]+(?:-[a-z0-9]+)*$")
     sizes: Optional[List[str]] = []
     colors: Optional[List[str]] = []
     discount: Optional[str] = None
