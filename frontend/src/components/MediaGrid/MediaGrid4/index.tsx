@@ -9,7 +9,7 @@ type TPicture = {
   url: string;
 };
 
-const QuadGallery = ({ pictures }: TPictures) => {
+const MediaGrid4 = ({ pictures }: TPictures) => {
   return (
     <div className="my-2 grid cursor-pointer gap-2 lg:grid-cols-2">
       {pictures.map((pic) => (
@@ -25,4 +25,4 @@ const QuadGallery = ({ pictures }: TPictures) => {
   );
 };
 
-export default QuadGallery;
+export default MediaGrid4;

@@ -3,24 +3,17 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import Subcategories from '../../Subcategories';
 import classes from './styles.module.scss';
+import { TCategory } from '@src/api/categories.ts';
 
-export type TSharedCategory = {
-  id: string;
-  url: string;
-  name: string;
-  isSale?: boolean;
-};
-
-type TCategoryProps = TSharedCategory & {
-  subCategories?: TSharedCategory[];
+type TCategoryProps = TCategory & {
   isLastItem: boolean;
 };
 
 const NavigationCategory = ({
-  url,
+  slug,
   name,
-  subCategories,
   isLastItem,
+  subcategories,
 }: TCategoryProps) => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
@@ -32,6 +25,8 @@ const NavigationCategory = ({
     setIsDropdownVisible(false);
   };
 
+  const url = `/category/${slug}`;
+
   return (
     <div
       className="flex items-center pb-4 lg:pb-8"
@@ -41,7 +36,7 @@ const NavigationCategory = ({
     >
       <a href={url} className={clsx(classes.dropDownTitle)}>
         {name}
-        {subCategories?.length && (
+        {subcategories.length && (
           <ChevronDown
             size="13"
             className={clsx(
@@ -52,7 +47,7 @@ const NavigationCategory = ({
         )}
       </a>
       <Subcategories
-        subCategories={subCategories}
+        subCategories={subcategories}
         isLastItem={isLastItem}
         isVisible={isDropdownVisible}
       />

@@ -1,6 +1,6 @@
 import MobileNavigation from './MobileNavigation';
 import DesktopNavigation from './DesktopNavigation';
-import useScreenSize from '../../hooks/useScreenSize.ts';
+import useScreenSize from '@hooks/useScreenSize.ts';
 
 const NavigationList = () => {
   const { isLgUp } = useScreenSize();
