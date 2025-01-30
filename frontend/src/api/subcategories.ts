@@ -1,6 +1,6 @@
 import axiosRequest from '@utils/requestHelper.ts';
 
-export type TSubcategories = {
+export type TSubcategory = {
   _id: string;
   name: string;
   slug: string;
@@ -10,7 +10,7 @@ export type TSubcategories = {
 
 export const getSubcategories = async (
   slug?: string
-): Promise<TSubcategories> => {
+): Promise<TSubcategory> => {
   return await axiosRequest({
     method: 'GET',
     url: `/subcategories/${slug ? `?filter_field=slug&filter_value=${slug}` : ''}`,

@@ -1,10 +1,10 @@
 import axiosRequest from '@utils/requestHelper.ts';
-import { TSubcategories } from '@src/api/subcategories.ts';
+import { TSubcategory } from '@src/api/subcategories.ts';
 
 export type TCategory = {
   _id: string;
   name: string;
-  subcategories: TSubcategories[];
+  subcategories: TSubcategory[];
   slug: string;
 };
 
