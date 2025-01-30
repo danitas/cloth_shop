@@ -1,37 +1,16 @@
 import React from 'react';
 import Typography from '@shared/Typography';
-import useGetSubcategories from '@hooks/api/useGetSubcategories.ts';
+import { TSubcategories } from '@src/api/subcategories.ts';
 
-export type TProducts = {
-  id: string;
-  name: string;
-  price: number;
-  currency: string;
-  image: string;
-  category_id: string;
-  subcategory_id: string;
-  sizes: string;
-  colors: string;
-  discount: number;
-  isNew: boolean;
-  isFavorite: boolean;
-  quantity: number;
-  hasSize: boolean;
+type TCategoryFilterSliderProps = {
+  subcategories: TSubcategories[];
 };
 
-export type TSubcategory = {
-  _id: string;
-  name: string;
-  category_id: string;
-  image: string;
-};
-
-const CategoryFilterSlider = () => {
-  const { data } = useGetSubcategories();
-  const subcategories = data as TSubcategory[];
-
-  if (!data) return null;
-
+const CategoryFilterSlider = ({
+  subcategories,
+}: TCategoryFilterSliderProps) => {
+  console.log('subcategories');
+  console.log(subcategories);
   return (
     <>
       <div className="max-w-auto flex w-full cursor-pointer flex-nowrap overflow-x-auto overflow-y-clip py-6 lg:w-auto">
