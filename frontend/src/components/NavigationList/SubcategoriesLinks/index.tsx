@@ -1,10 +1,10 @@
 import clsx from 'clsx';
-import { TSharedCategory } from '@components/NavigationList/DesktopNavigation/NavigationCategory';
 import { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import { TSubcategory } from '@src/api/subcategories.ts';
 
 type TSubcategoriesLinksProps = {
-  subCategories?: TSharedCategory[];
+  subCategories?: TSubcategory[];
   isOpen?: boolean;
 };
 
@@ -38,7 +38,7 @@ const SubcategoriesLinks = ({
       >
         {subCategories.map((child) => (
           <a
-            href={child.url}
+            href={child.slug}
             key={child._id}
             className={clsx(
               subCategories.length <= 8 ? 'w-full' : 'w-1/2',

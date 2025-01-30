@@ -1,9 +1,8 @@
-import React from 'react';
 import Typography from '@shared/Typography';
-import { TSubcategories } from '@src/api/subcategories.ts';
+import { TSubcategory } from '@src/api/subcategories.ts';
 
 type TCategoryFilterSliderProps = {
-  subcategories: TSubcategories[];
+  subcategories: TSubcategory[];
 };
 
 const CategoryFilterSlider = ({

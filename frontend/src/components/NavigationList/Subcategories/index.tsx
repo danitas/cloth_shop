@@ -1,19 +1,18 @@
 import clsx from 'clsx';
-import { TSharedCategory } from '@components/NavigationList/DesktopNavigation/NavigationCategory';
-import { navigationLinks } from '@data/navigation.ts';
 import classes from './styles.module.scss';
 import NavigationLinks from '@components/NavigationList/NavigationLinks';
 import SubcategoriesLinks from '@components/NavigationList/SubcategoriesLinks';
 import NewArrivalsNavDD from '../NewArrivalsNavDD';
 import img from '@assets/images/navigation/menu_cabare.jpg';
 import imgLast from '@assets/images/navigation/menu_last.jpg';
+import { TSubcategory } from '@src/api/subcategories.ts';
 
 const Subcategories = ({
   subCategories,
   isLastItem,
   isVisible,
 }: {
-  subCategories?: TSharedCategory[];
+  subCategories?: TSubcategory[];
   isLastItem?: boolean;
   isVisible: boolean;
 }) => {
@@ -32,7 +31,7 @@ const Subcategories = ({
       <div className="mx-20 flex justify-between py-6 lg:h-[305px]">
         <div className="flex h-full">
           <SubcategoriesLinks subCategories={subCategories} />
-          <NavigationLinks subCategories={navigationLinks} />
+          <NavigationLinks subCategories={subCategories} />
         </div>
         <NewArrivalsNavDD imgSource={isLastItem ? imgLast : img} />
       </div>
