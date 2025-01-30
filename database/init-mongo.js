@@ -5,22 +5,27 @@ const categories = [
 	{
 		_id: ObjectId(),
 		name: "New In",
+		slug: "new-in",
 	},
 	{
 		_id: ObjectId(),
 		name: "Shoes",
+		slug: "shoes",
 	},
 	{
 		_id: ObjectId(),
 		name: "Bags",
+		slug: "bags",
 	},
 	{
 		_id: ObjectId(),
 		name: "Clothing",
+		slug: "clothing",
 	},
 	{
 		_id: ObjectId(),
 		name: "Shoelovers Club",
+		slug: "shoelovers-club",
 	}
 ];
 
@@ -28,43 +33,43 @@ const categories = [
 const subcategories = [
 	// Clothing
 	[
-		{_id: ObjectId(), name: "Cowbooties", category_id: categories[0]._id, image: "https://example.com/tshirts.jpg"},
-		{_id: ObjectId(), name: "Jeans", category_id: categories[0]._id, image: "https://example.com/jeans.jpg"},
+		{_id: ObjectId(), name: "Cowbooties", slug: "cowbooties", category_id: categories[0]._id, category_slug: , image: "https://example.com/tshirts.jpg"},
+		{_id: ObjectId(), name: "Jeans", slug: 'jeans', category_id: categories[0]._id, image: "https://example.com/jeans.jpg"},
 	],
 	// Footwear
 	[
-		{_id: ObjectId(), name: "Sneakers", category_id: categories[2]._id, image: "https://example.com/sneakers.jpg"},
-		{_id: ObjectId(), name: "Boots", category_id: categories[2]._id, image: "https://example.com/boots.jpg"},
-		{_id: ObjectId(), name: "Sandals", category_id: categories[2]._id, image: "https://example.com/sandals.jpg"}
+		{_id: ObjectId(), slug: "sneakers", name: "Sneakers", category_id: categories[2]._id, image: "https://example.com/sneakers.jpg"},
+		{_id: ObjectId(), slug: "boots", name: "Boots", category_id: categories[2]._id, image: "https://example.com/boots.jpg"},
+		{_id: ObjectId(), slug: "sandals", name: "Sandals", category_id: categories[2]._id, image: "https://example.com/sandals.jpg"}
 	],
 	// Electronics
 	[
-		{_id: ObjectId(), name: "Laptops", category_id: categories[3]._id, image: "https://example.com/laptops.jpg"},
-		{_id: ObjectId(), name: "Smartphones", category_id: categories[3]._id, image: "https://example.com/smartphones.jpg"}
+		{_id: ObjectId(), slug: "laptops", name: "Laptops", category_id: categories[3]._id, image: "https://example.com/laptops.jpg"},
+		{_id: ObjectId(), slug: "smartphones", name: "Smartphones", category_id: categories[3]._id, image: "https://example.com/smartphones.jpg"}
 	],
 	// Home Goods
 	[
-		{_id: ObjectId(), name: "Furniture", category_id: categories[4]._id, image: "https://example.com/furniture.jpg"},
+		{_id: ObjectId(), slug: "furniture", name: "Furniture", category_id: categories[4]._id, image: "https://example.com/furniture.jpg"},
 		{
 			_id: ObjectId(),
-			name: "Kitchenware",
+			slug: "kitchenware", name: "Kitchenware",
 			category_id: categories[4]._id,
 			image: "https://example.com/kitchenware.jpg"
 		},
 	],
 	[
-		{ _id: ObjectId(), name: 'Cowbooties', category_id: categories[1]._id, image: "cowbboots.jpg" },
-		{ _id: ObjectId(), name: 'Party Shoes', category_id: categories[1]._id, image: "chownyky.jpg" },
-		{ _id: ObjectId(), name: 'Knee boots', category_id: categories[1]._id, image: "boots.jpg" },
-		{ _id: ObjectId(), name: 'Sandals', category_id: categories[1]._id, image: "bosonijki.jpg" },
-		{ _id: ObjectId(), name: 'Ankle boots', category_id: categories[1]._id, image: "boots-12-botil-24.jpg" },
-		{ _id: ObjectId(), name: 'Boots', category_id: categories[1]._id, image: "boots12-24.jpg" },
-		{ _id: ObjectId(), name: 'Loafers/Oxfords', category_id: categories[1]._id, image: "loafers-24-09.jpg" },
-		{ _id: ObjectId(), name: 'Ballet flat', category_id: categories[1]._id, image: "bosbaletky-24-09.jpg" },
-		{ _id: ObjectId(), name: 'Cowboy boots', category_id: categories[1]._id, image: "kowboy09.jpg" },
-		{ _id: ObjectId(), name: 'Mules/Sabo', category_id: categories[1]._id, image: "myli-24-09.jpg" },
-		{ _id: ObjectId(), name: 'Sneakers', category_id: categories[1]._id, image: "keds-1-24.jpg" },
-		{ _id: ObjectId(), name: 'Slides', category_id: categories[1]._id, image: "slopanci-6-24.jpg" },
+		{ _id: ObjectId(), slug: "cowbooties", name: 'Cowbooties', category_id: categories[1]._id, image: "cowbboots.jpg" },
+		{ _id: ObjectId(), slug: "party_shoes", name: 'Party Shoes', category_id: categories[1]._id, image: "chownyky.jpg" },
+		{ _id: ObjectId(), slug: "knee_boots", name: 'Knee boots', category_id: categories[1]._id, image: "boots.jpg" },
+		{ _id: ObjectId(), slug: "sandals", name: 'Sandals', category_id: categories[1]._id, image: "bosonijki.jpg" },
+		{ _id: ObjectId(), slug: "ankle_boots", name: 'Ankle boots', category_id: categories[1]._id, image: "boots-12-botil-24.jpg" },
+		{ _id: ObjectId(), slug: "boots", name: 'Boots', category_id: categories[1]._id, image: "boots12-24.jpg" },
+		{ _id: ObjectId(), slug: "loafers_oxfords", name: 'Loafers/Oxfords', category_id: categories[1]._id, image: "loafers-24-09.jpg" },
+		{ _id: ObjectId(), slug: "ballet_flat", name: 'Ballet flat', category_id: categories[1]._id, image: "bosbaletky-24-09.jpg" },
+		{ _id: ObjectId(), slug: "cowboy_boots", name: 'Cowboy boots', category_id: categories[1]._id, image: "kowboy09.jpg" },
+		{ _id: ObjectId(), slug: "mules_sabo", name: 'Mules/Sabo', category_id: categories[1]._id, image: "myli-24-09.jpg" },
+		{ _id: ObjectId(), slug: "sneakers", name: 'Sneakers', category_id: categories[1]._id, image: "keds-1-24.jpg" },
+		{ _id: ObjectId(), slug: "slides", name: 'Slides', category_id: categories[1]._id, image: "slopanci-6-24.jpg" },
 	]
 ];
 
