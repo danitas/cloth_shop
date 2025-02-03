@@ -27,7 +27,7 @@ const Sidebar = () => {
         </div>
 
         <div className="-mx-4 bg-beige">
-          <NavigationLinks subCategories={navigationLinks} />
+          <NavigationLinks subCategories={[]} />
         </div>
 
         <div className="mt-5 overflow-y-auto">

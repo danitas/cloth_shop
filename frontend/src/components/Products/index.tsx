@@ -1,33 +1,25 @@
-import React from 'react';
 import ProductTile from '@components/Products/ProductTile';
-import { products } from '@data/shoes.ts';
+import { useProductContext } from '@context/ProductContext.tsx';
 
-type TProductsProps = {
-  products: TProducts[];
+export type TProductProps = {
+  size?: number;
+  startIndex?: number;
+  className?: string;
 };
 
-type TProducts = {
-  id: string;
-  name: string;
-  price: number;
-  currency: string;
-  image: string;
-  category_id: string;
-  subcategory_id: string;
-  sizes: string;
-  colors: string;
-  discount: number;
-  isNew: boolean;
-  isFavorite: boolean;
-  quantity: number;
-  hasSize: boolean;
-};
+const Products = ({ size, startIndex, className }: TProductProps) => {
+  const { products } = useProductContext();
+  const start = startIndex ?? 0;
 
-const Products = () => {
+  const displayedProducts =
+    size !== undefined
+      ? products.slice(start, start + size)
+      : products.slice(start);
+
   return (
-    <div className="productsContainer my-[50px] grid cursor-pointer grid-cols-2 gap-2 lg:grid-cols-3">
-      {products.map((item) => (
-        <ProductTile {...item} key={item.id} />
+    <div className="mx-auto my-6 my-[50px] grid cursor-pointer grid-cols-2 gap-2 px-4 lg:my-9 lg:max-w-[calc(100%-14vw)] lg:grid-cols-3">
+      {displayedProducts.map((item) => (
+        <ProductTile {...item} key={item._id} className={className} />
       ))}
     </div>
   );
