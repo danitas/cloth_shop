@@ -7,28 +7,47 @@ import useScreenSize from '@hooks/useScreenSize.ts';
 import DesktopCategoryGrid from '@components/Category/DesktopCategoryGrid';
 import MobileCategoryGrid from '@components/Category/MobileCategoryGrid';
 import useGetCategory from '@hooks/api/useGetCategory.ts';
+import Pagination from '@components/Pagination';
+import ProductProvider from '@context/ProductContext.tsx';
+import { TCategory } from '@src/api/categories.ts';
 
-export default function Category() {
-  const { categoryId } = useParams();
-  const { data } = useGetCategory({ category_slug: categoryId });
+type TCategoryProps = {
+  category: TCategory;
+};
+
+const Category = ({ category }: TCategoryProps) => {
   const { isLgUp } = useScreenSize();
-
-  if (!data) return null;
-
   return (
-    <Layout>
+    <>
       <div className="mx-auto my-6 px-4 lg:my-9 lg:max-w-[calc(100%-14vw)]">
         <div className="flex justify-between lg:justify-start">
           <Typography tag="h1" uppercase size={{ desktop: 'xl', mobile: 'lg' }}>
-            {data.name}
+            {category.name}
           </Typography>
 
           <MobileGrid />
         </div>
 
-        <CategoryFilterSlider subcategories={data.subcategories} />
+        <CategoryFilterSlider subcategories={category.subcategories} />
       </div>
       {isLgUp ? <DesktopCategoryGrid /> : <MobileCategoryGrid />}
+
+      <Pagination />
+    </>
+  );
+};
+
+export default function CategoryContainer() {
+  const { categoryId } = useParams();
+  const { data: category } = useGetCategory({ category_slug: categoryId });
+
+  if (!category) return null;
+
+  return (
+    <Layout>
+      <ProductProvider>
+        <Category category={category} />
+      </ProductProvider>
     </Layout>
   );
 }

@@ -8,8 +8,6 @@ type TCategoryFilterSliderProps = {
 const CategoryFilterSlider = ({
   subcategories,
 }: TCategoryFilterSliderProps) => {
-  console.log('subcategories');
-  console.log(subcategories);
   return (
     <>
       <div className="max-w-auto flex w-full cursor-pointer flex-nowrap overflow-x-auto overflow-y-clip py-6 lg:w-auto">

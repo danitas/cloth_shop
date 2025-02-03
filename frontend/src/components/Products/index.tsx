@@ -1,19 +1,14 @@
-import React from 'react';
 import ProductTile from '@components/Products/ProductTile';
-import useGetProducts from '@hooks/api/useGetProducts.ts';
+import { useProductContext } from '@context/ProductContext.tsx';
 
-type TProducts = {
+export type TProductProps = {
   size?: number;
   startIndex?: number;
   className?: string;
 };
 
-const Products = ({ size, startIndex, className }: TProducts) => {
-  const { data } = useGetProducts();
-
-  if (!data?.products) return null;
-
-  const products = data.products as TProduct[];
+const Products = ({ size, startIndex, className }: TProductProps) => {
+  const { products } = useProductContext();
   const start = startIndex ?? 0;
 
   const displayedProducts =

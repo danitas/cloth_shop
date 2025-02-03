@@ -1,11 +1,10 @@
-import React from 'react';
 import Typography from '@shared/Typography';
 import clsx from 'clsx';
 
 type TProductsPrices = {
   price: number;
   currency: string;
-  discount_price: number;
+  discount_price?: number;
 };
 
 const Prices = ({ price, currency, discount_price }: TProductsPrices) => {
